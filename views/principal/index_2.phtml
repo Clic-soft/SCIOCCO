@@ -1,0 +1,393 @@
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/camera.css" />
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/owl.carousel.css" />
+
+<script src="<?php echo BASE_URL; ?>public/js/camera.js"></script>
+     <script src="<?php echo BASE_URL?>public/js/jquery.easing.1.3.js"></script>
+     <script src="<?php echo BASE_URL?>public/js/owl.carousel.js"></script>
+<script type="text/javascript">
+$(document).ready(function () { 
+	ContarClics(6)
+});
+</script>
+<!--***************************** SCRIPT SLIDE*****************************-->
+<?php if (isset($this->imagenes) && count($this->imagenes)) : ?>
+     <script type="application/javascript">
+       $(document).ready(function(){
+        jQuery('#camera_wrap').camera({
+			loader: false,
+			pagination: false ,
+			minHeight: '444',
+			pagination: true,
+			overlayer: true,
+			thumbnails: false,
+			height: '403',
+			caption: true,
+			navigation: true,
+			fx: 'mosaic',
+			time: 5000,
+			navigation: true,
+			navigationHover: true,
+			mobileNavHover: true,
+			portrait:true,
+          });
+          
+          });
+     </script>
+<?php endif; ?>   
+     
+     
+
+     
+<!--*****************************SLIDE*****************************-->
+<?php if (isset($this->imagenes) && count($this->imagenes)) : ?>
+
+<div class="slider_wrapper ">
+  <div id="camera_wrap" class="">
+  <?php foreach ($this->imagenes as $imagen): ?>
+    <div data-src='<?php echo BASE_URL_ADMIN . "views/banner/fotos/grande/".$imagen->archivo.".".$imagen->extension."?nocache=".date("Y-m-d H:i:s").""?>' data-link="<?php echo $imagen->url;?>" data-target="<?php echo $imagen->tipo;?>" >
+        <div class="camera_caption fadeFromBottom">
+            <?php echo $imagen->titulo;?>&nbsp;
+        </div>
+    </div>
+  <?php endforeach;?>  
+  </div> 
+</div>
+
+<?php endif; ?>   
+
+<!--*****************************ICONOS INICIALES***************************** -->
+<style>
+.titulo_con{
+	background-image:url(<?php echo BASE_URL; ?>public/img/bg_fondo_iconos.png);
+	background-repeat:no-repeat; 
+	font-weight:bold; 
+	height:70px; 
+	color:#fdce14; 
+	background-color:#FFF;
+	padding-top:3px;
+	font-size:22px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 995px) {
+	.titulo_con{
+		background-color:#0B6EC7;
+		font-weight:bold; 
+		height:70px; 
+		color:#fdce14; 
+	}
+}
+ 
+@media only screen and (max-width: 767px) {
+	.titulo_con{
+		background-color:#0B6EC7;
+		font-weight:bold; 
+		height:70px; 
+		color:#fdce14; 
+		border-right:1px solid #CCC;
+	}
+}
+	 
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.titulo_con{
+		background-color:#0B6EC7;
+		font-weight:bold; 
+		height:70px; 
+		color:#fdce14; 
+		border-right:1px solid #CCC;
+	}
+}
+</style>
+<div class="center">
+  <div class="container_12">
+  	<div class="grid_01 titulo_con" style=" border-right:0px;"><br />
+		<span style="color:#FFF">Consulta</span>
+    </div>
+    <div class="grid_02" style="background-color:#FFF; height:70px;padding-top:3px; border-left:1px;">
+    <?php if($this->linkusuario->estado == 1):?>
+    <a href="<?php echo $this->linkusuario->link;?>" target="<?php echo $this->linkusuario->tipo_link;?>" style="font-size:12px; font-weight:bold" title="Usuarios" onclick="javascript:ContarClics(8)">
+    	<img src="<?php echo BASE_URL?>public/img/icono_inicio/link_usuario.png" width="45" height="45" /><br />
+        Usuarios
+    </a>    
+    <?php else:?>
+    	<img src="<?php echo BASE_URL?>public/img/icono_inicio/link_usuario_bn.png" width="45" height="45"/><br />
+        Usuarios
+    <?php endif;?>	
+    </div>
+    <div class="grid_02" style="background-color:#FFF;height:70px;padding-top:3px; border-left:0px;">
+	<a href="<?php echo BASE_URL; ?>doclinea/Infodoclinea" style="font-size:12px; font-weight:bold" title="Documentos en linea">
+    	<img src="<?php echo BASE_URL?>public/img/icono_inicio/link_doclinea.png" width="45" height="45"/><br />
+    	Documentos en l&iacute;nea
+    </a>
+    </div>
+    <div class="grid_02" style="background-color:#FFF;height:70px;border-left:0px;padding-top:3px;">
+    <?php if($this->linkpse->estado == 1):?>
+    <a href="<?php echo $this->linkpse->link;?>" target="<?php echo $this->linkpse->tipo_link;?>" style="font-size:12px; font-weight:bold" title="PSE">
+    	<img src="<?php echo BASE_URL?>public/img/icono_inicio/link_pse.png" width="45" height="45"/><br />
+        PSE
+    </a>    
+    <?php else:?>
+    	<img src="<?php echo BASE_URL?>public/img/icono_inicio/link_pse_bn.png" width="45" height="45"/><br />
+        PSE
+    <?php endif;?>
+    </div>
+    <div class="grid_02" style="background-color:#FFF;height:70px;border-left:0px;padding-top:3px;">
+    <a href="<?php echo BASE_URL; ?>Compras" style="font-size:12px; font-weight:bold" title="Compras en linea">
+
+		<img src="<?php echo BASE_URL?>public/img/icono_inicio/link_comlinea.png" width="45" height="45" /><br />
+       Compras en l&iacute;nea
+    </a>    
+    </div>
+        
+  </div>
+</div>
+
+<!--*****************************SERVICIOS********************************************************** -->
+  <div class="container_12 center">
+    <div class="grid_12">
+      <div style="font-size:24px; color:#0089e1; font-weight:bold;padding-top:15px;" align="left">Servicios
+      </div>
+  		<hr color="#0089e1"/>
+    </div>
+    <div class="grid_4" style="border:1px solid #CCC; background-color:#FFF">
+      <a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/1">
+      	<img src="<?php echo BASE_URL?>public/img/icono_inicio/ahorro.jpg" alt="" class="img_inner" />
+      </a>
+      <div class="text1"><a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/1" style="color:#b3e955; font-weight:bold;">Ahorro</a></div>
+          <div style="text-align:justify; padding-right:8px; padding-left:8px;">
+          En CEMCOP  ahorras con inteligencia, elige una buena tasa.<br /><br />
+          </div>
+      <br />
+      <a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/1" class="btn">Ver mas...</a>
+      <br /><br />
+    </div>
+    <div class="grid_4" style="border:1px solid #CCC;background-color:#FFF">
+     <a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/2">
+      	<img src="<?php echo BASE_URL?>public/img/icono_inicio/credito.jpg" alt="" class="img_inner" />
+     </a>   
+      <div class="text1" ><a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/2" style="color:#fc039b; font-weight:bold;">Cr&eacute;dito</a></div>
+          <div style="text-align:justify; padding-right:8px; padding-left:8px;">
+          Contamos con diferentes líneas de créditos que se adaptan a cada una de tus necesidades con tasas competitivas.
+          </div>
+      <br />
+      <a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/2" class="btn">Ver mas...</a>
+      <br /><br />
+    </div>
+    <div class="grid_4" style="border:1px solid #CCC;background-color:#FFF">
+     <a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/3">
+      	<img src="<?php echo BASE_URL?>public/img/icono_inicio/polizas.jpg" alt="" class="img_inner" />
+     </a>
+      <div class="text1"><a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/3" style="color:#fa8830; font-weight:bold;">P&oacute;liza</a></div>
+          <div style="text-align:justify; padding-right:8px; padding-left:8px;">
+            Protégete, protege tu familia y tus pertenencias, con el respaldo de una buena compañía y con 0% de interés.
+          </div>
+      <br />
+      <a href="<?php echo BASE_URL; ?>servicios/ListadoServicios/3" class="btn">Ver mas...</a>
+      <br /><br />
+    </div>
+  </div>
+
+<br />
+<!--*****************************BANNER DERECHA Y BANNER IZQUIERDA*****************************-->
+<?php if (count($this->banner_medizq) or count($this->banner_medder)):?> 
+<?php if ($this->banner_medizq->estado == 1 or  $this->banner_medder->estado == 1):?>
+<div class="container_12 center">
+  <?php if (count($this->banner_medizq)):?> 
+  <?php if ($this->banner_medizq->estado == 1 and count($this->banner_medizq) > 0):?>
+  	<div class="grid_6 center"  >
+    <?php if($this->banner_medizq->url != ''):?>
+    <a href="<?php echo $this->banner_medizq->url?>" target="<?php echo $this->banner_medizq->tipo?>">
+    <?php endif;?>
+    <img src="<?php echo BASE_URL_ADMIN . "views/banner/fotos/grande/".$this->banner_medizq->archivo.".".$this->banner_medizq->extension."?nocache=".date("Y-m-d H:i:s").""?>" title="<?php echo $this->banner_medizq->titulo?>" style="width:100%"/>
+    <?php if($this->banner_medizq->url != ''):?>
+    </a>
+    <?php endif;?>
+    </div>
+  <?php endif;?>
+  <?php endif;?>
+
+  <?php if (count($this->banner_medder)):?>  
+  <?php if ($this->banner_medder->estado == 1 and count($this->banner_medder) > 0):?>
+  	<div class="grid_6 center" style="float:right">
+    <?php if($this->banner_medder->url != ''):?>
+    <a href="<?php echo $this->banner_medder->url?>" target="<?php echo $this->banner_medder->tipo?>">
+    <?php endif;?>
+    <img src="<?php echo BASE_URL_ADMIN . "views/banner/fotos/grande/".$this->banner_medder->archivo.".".$this->banner_medder->extension."?nocache=".date("Y-m-d H:i:s").""?>" title="<?php echo $this->banner_medder->titulo?>" style="width:100%"/>
+    <?php if($this->banner_medder->url != ''):?>
+    </a>
+    <?php endif;?>
+    
+    </div>
+  <?php endif;?>
+  <?php endif;?>
+</div>  
+<br />
+<?php endif;?>
+<?php endif;?>
+
+<!--*****************************CONVENIOS********************************************************** -->
+<div class="page1_block1" style="background-image:url(<?php echo BASE_URL?>public/img/foto_fondo.png<?php '?nocache='.date("Y-m-d H:i:s")?> );background-size:cover;background-repeat:no-repeat" >
+  <div class="container_12" >
+  
+  <span style="font-size:24px; color:#FFF; text-align:left; font-weight:bold">Convenios</span>
+  <hr color="#FFFFFF"/>
+  <?php foreach ($this->cat_convenios as $cat_convenios): ?>
+    <div class="grid_6">
+      <div class="block1">
+        <div class="title"><img src="<?php echo BASE_URL_ADMIN?>views/categoriasauxconser/fotos/<?php echo $cat_convenios->id; ?>.png" alt="" style="width:40px; height:40px;" />&nbsp;<a href="<?php echo BASE_URL; ?>convenios/ListadoConvenios/<?php echo $cat_convenios->id;?>"><?php echo $cat_convenios->categoria; ?></a></div>
+        <div class="clear"></div><?php echo $cat_convenios->descripcion; ?></a>
+      </div>
+    </div>
+   <?php endforeach;?> 
+
+<!--*****************************CONVENIOS IMAGENES************************************************* --> 
+  
+<script>
+       $(document).ready(function(){
+        /*carousel*/
+		
+        var owl = $("#owl"); 
+        owl.owlCarousel({
+        items : 5, //10 items above 1000px browser width
+        itemsDesktop : [1000,4], //5 items between 1000px and 901px
+        itemsDesktopSmall : [900, 3], // betweem 900px and 601px
+        itemsTablet: [600, 2], //2 items between 600 and 0
+        itemsMobile : [479, 2], // itemsMobile disabled - inherit from itemsTablet option
+        navigation : false,
+        pagination :  false
+        });
+		 owl.trigger('owl.play',2000);
+          });
+		  
+     </script>
+   
+     
+
+<?php if (isset($this->img_convenios) && count($this->img_convenios)) : ?>
+<div class="grid_12" style="background-color:#FFF; border:1px solid #CCC; margin-top:20px;">
+
+          <div id="owl">
+          <?php foreach ($this->img_convenios as $img_convenios): ?>
+            <div class="item">
+            <a href="<?php echo BASE_URL; ?>convenios/DetalleConvenio/<?php echo $img_convenios->id?>">
+              <img src='<?php echo BASE_URL_ADMIN . "views/auxconser/carrucel/".$img_convenios->id.".jpg?nocache=".date("Y-m-d H:i:s").""?>' alt="<?php echo $img_convenios->nombre?>" title="<?php echo $img_convenios->nombre?>" />
+            </a>  
+            </div>
+          <?php endforeach;?>
+          </div>
+          
+</div>
+<div class="grid_12"><img src="<?php echo BASE_URL; ?>public/img/sombra_carrucel.png" width="100%" /></div>
+<?php endif; ?> 
+<!--***********************************************************************************************-->
+ 
+  </div>
+</div>
+<!--***********************************************************************************************-->
+
+<!-- ULTIMA NOTICIA -->
+
+<div class="bottom_block">
+  <div class="container_12">
+  <br />
+        <span style="font-size:24px; color:#FFF; text-align:left; font-weight:bold">	Noticias</span>
+      <hr color="#FFFFFF"/>
+      
+    <img src="<?php echo BASE_URL_ADMIN . "views/noticias/fotos/".$this->ult_noticia->archivo.".jpg?nocache=".date("Y-m-d H:i:s").""?>" alt="" class="img_inner fleft" style="elevation:below" />
+    <div class="extra_wrapper">
+      <h2><?php echo $this->ult_noticia->titulo?></h2>
+       <?php echo substr(strip_tags($this->ult_noticia->descripcion),0,400) ?>...   <br />
+      <a href="<?php echo BASE_URL; ?>noticias/DetalleNoticia/<?php echo trim($this->ult_noticia->id) ?>" >Leer Mas...</a>        
+    </div>
+  </div>
+</div>
+
+<!--*****************************ENCUESTA********************************************************** -->
+<?php if(count($this->encuestapre) and count($this->encuestares)):?>
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/jquery.fancybox.css" />
+<script src="<?php echo BASE_URL; ?>public/js/jquery.fancybox.js"></script>
+<script src="<?php echo BASE_URL; ?>views/principal/js/encuesta.js"></script>
+
+<script>
+$(document).ready(function() {
+	
+    $(".ventanaresultados").fancybox({
+        'showCloseButton': false,
+        'width': 620,
+        'height': 470,
+        'autoSize': false,
+        'autoDimensions': false,
+        'transitionIn': 'none',
+        'transitionOut': 'none',
+        'type': 'iframe',
+        'beforeClose': function() {
+            
+        }
+    });
+});
+</script>
+
+<div class="page1_block1"  style="background-image:url(<?php echo BASE_URL?>public/img/foto_fondo_encuesta.png<?php '?nocache='.date("Y-m-d H:i:s")?> );background-size:cover;background-repeat:no-repeat;" >
+
+<!--******************************************BANNER CENTRAL*****************************-->
+
+<?php if (count($this->banner_medhor)):?> 
+<?php if ($this->banner_medhor->estado == 1):?>
+
+
+<div class="container_12 center" >
+
+  <?php if (count($this->banner_medhor)):?>  
+  <?php if ($this->banner_medhor->estado == 1 and count($this->banner_medhor) > 0):?>
+  	<div class="grid_12">
+    <?php if($this->banner_medhor->url != ''):?>
+    <a href="<?php echo $this->banner_medhor->url?>" target="<?php echo $this->banner_medhor->tipo?>">
+    <?php endif;?>
+    <img src="<?php echo BASE_URL_ADMIN . "views/banner/fotos/grande/".$this->banner_medhor->archivo.".".$this->banner_medhor->extension."?nocache=".date("Y-m-d H:i:s").""?>" title="<?php echo $this->banner_medhor->titulo?>" style="width:100%" />
+    <?php if($this->banner_medhor->url != ''):?>
+    </a>
+    <?php endif;?>
+    </div>
+  <?php endif;?>
+  <?php endif;?>
+</div>
+
+<?php endif;?>
+<?php endif;?>
+<!--***********************************************************************************************-->
+
+<br /><br />
+  <div class="container_12">
+    <div class="grid_12" >
+    <br />
+      <span style="font-size:24px; color:#FFF; text-align:left; font-weight:bold">Encuesta</span>
+  	  <hr color="#FFF"/>
+  <div id="zonaencuesta">
+    	<div class="grid_5" style="color:#FFF">
+       <?php echo $this->encuestapre->titulo; ?><br /><br />
+       
+       <a href="<?php echo BASE_URL; ?>principal/resultadosEncuesta/<?php echo $this->encuestapre->id; ?>" style="color:#30c3f6" class="ventanaresultados">Ver resultados de la encuesta</a><br />
+       
+       Total Votos: <?php echo number_format($this->encuestapre->votos,0,',','.'); ?>
+       
+        </div>
+        <div class="grid_6" style="color:#FFF;">
+        <? foreach($this->encuestares as $respuestas):?>
+        	<div class="grid_5" style="height:32px;">
+            <img src="<?php echo BASE_URL; ?>public/img/encuesta.png" style="vertical-align:middle" />
+			<?php echo $respuestas->respuesta;?>
+            </div>
+            <div class="grid_1"  style="height:32px;"> 
+                <a href="javascript:realizar_votacion(<?php echo $respuestas->id ?>);" class="btn1 votar" >Votar</a>
+            </div>    
+            
+        <?php endforeach;?>
+        </div>
+  </div>     
+    </div>
+    
+  </div>
+  <br /><br />
+</div>
+<?php endif;?>
+
+<!--***********************************************************************************************-->

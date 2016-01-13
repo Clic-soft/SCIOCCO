@@ -1,0 +1,33 @@
+<?php if (isset($this->info) && count($this->info)) : ?>   
+    <table class="table" style="width:100%; font-size:12px;">
+        <thead>
+            <tr>
+                <td style="width:25%;"><b>NOMBRE</b></td>
+                <td style="width:50%;"><b>DESCRIPCIÓN</b></td>
+                <td style="width:25%;"><b>ACCIONES</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->info as $info):?>
+                <tr>
+                    <td><?php echo $info->nombre;?></td>
+                    <td><?php echo $info->descripcion;?></td>
+                    <td>
+                        <a href="<?php echo BASE_URL; ?>empresa/editar_info_emp/<?php echo $info->id?>" class="btn2 ventanainfo"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> Editar</a>
+                        <a href="javascript:borrar_info_emp(<?php echo $info->id;?>)" class="btn4"><img src="<?php echo BASE_URL; ?>public/img/remover_todos.png" style="vertical-align:middle"/> Eliminar</a>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            <tr>
+                <td colspan="3">
+                    <div class="clear"></div>
+                    <?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<?php else: ?>
+    <div class='alert alert-info'>
+        <strong>No hay información empresarial creada.</strong>
+    </div>
+<?php endif; ?>

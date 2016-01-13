@@ -1,0 +1,52 @@
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true,
+	  heightStyle: "content"
+    });
+  });
+  </script>
+
+<div class="content">  
+  <div class="container_12">
+  <br />
+        <span style="font-size:24px; color:#0089e1; font-weight:bold; ">Avisos y politicas legales</span>
+  		<hr color="#0089e1"/>
+<br />   
+	<div class="grid_12"
+    ><div id="accordion"> 
+
+               
+      	<div class="text1"><h3><a href="#"><?php echo $this->politicas->nombre;?></a></h3></div>
+  			<div>
+    		<p><?php echo $this->politicas->descripcion;?></p>
+  			</div>
+        <div class="text1"><h3><a href="#"><?php echo $this->fogacoop->nombre;?></a></h3></div>
+  			<div>
+    		<p><?php echo $this->fogacoop->descripcion;?></p>
+  			</div>
+        <div class="text1"><h3><a href="#"><?php echo $this->proteccion->nombre;?></a></h3></div>
+  			<div>
+    		<p><?php echo $this->proteccion->descripcion;?></p>
+  			</div>
+        <div class="text1"><h3><a href="#"><?php echo $this->lavado->nombre;?></a></h3></div>
+  			<div>
+    		<p><?php echo $this->lavado->descripcion;?></p>
+  			</div>
+       <div class="text1"><h3><a href="#"><?php echo $this->supersolidaria->nombre;?></a></h3></div>
+  			<div>
+    		<p><?php echo $this->supersolidaria->descripcion;?></p>
+  			</div>
+        <div class="text1"><h3><a href="#"><?php echo $this->servicio->nombre;?></a></h3></div>
+  			<div>
+    		<p><?php echo $this->servicio->descripcion;?></p>
+  			</div>  
+                                
+    </div>
+    </div>
+  </div>
+</div>
+

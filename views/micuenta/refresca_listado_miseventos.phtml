@@ -1,0 +1,40 @@
+<?php if (isset($this->miseventos) && count($this->miseventos)) : ?>
+          			<?php foreach ($this->miseventos as $eventos): ?>
+                    <div class="grid_12" style="margin-bottom:10px;background-color:#FFF;border:#E8E8E8 1px solid;padding-left:5px;">
+   					   	<div class="grid_2" style="width:140px; height:115px; background-color:#FFF;">
+             				<?php if (file_exists(ROOT_ADMIN."views/cursos/fotos/$eventos->id.jpg")):?>       
+        						<a href="<?php echo BASE_URL . "cursos/DetalleCurso/$eventos->id"?>"><img src="<?php echo BASE_URL_ADMIN . "views/cursos/fotos/".$eventos->id.".jpg?nocache=".date("Y-m-d H:i:s").""?>" alt="" width="110" height="110" /></a>
+           					<?php else:?>
+        						<a><img src="<?php echo BASE_URL . "public/img/imagen_no_disponible_123.png?nocache=".date("Y-m-d H:i:s").""?>" alt="" width="110" height="110" /></a>
+        					<? endif;?>
+                        </div>
+                        <div class="grid_4" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">	
+							<b>Evento:</b> <?php echo substr($eventos->nombre,0,40); ?>
+                        </div>
+                        <div class="grid_2" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                           	<b>Fecha Inicio</b>: <?php echo date('Y-m-d' , strtotime($eventos->fecha_iniciacion)); ?>
+                        </div>
+                        <div class="grid_2" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                           	<b>Fecha Fin:</b> <?php echo date('Y-m-d' , strtotime($eventos->fecha_finalizacion)); ?></font>
+                        </div>
+                        <div class="grid_1" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                           	<b>Tipo:</b> <?php if($eventos->tipo ==1){
+								echo "Curso";
+							}else if ($eventos->tipo == 2){
+								echo "Capacitacion";
+							}else if ($eventos->tipo ==3){
+								echo "Evento";
+							}?></font>
+                        </div>
+                        <div class="grid_1">
+                           	<a href="#" class="btn5 delete" onClick="javascript:borrar_mievento(<?php echo trim($eventos->inscripcion)?>)" style="background-color:#da4f49;"><img src="<?php echo BASE_URL; ?>public/img/eliminar.png" style="vertical-align:middle"/> Eliminar</a>
+                        </div>
+					</div>
+					<?php endforeach;?>
+                    <div class="clear"></div>
+					<?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+					<?php else: ?>
+                    	<div class='alert alert-info'>
+                           	<strong>No hay eventos para el asociado.</strong>
+                        </div>
+					<?php endif; ?>

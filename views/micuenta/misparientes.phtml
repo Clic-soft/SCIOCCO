@@ -1,0 +1,124 @@
+
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/jquery.fancybox.css" />
+<script src="<?php echo BASE_URL; ?>public/js/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $(".ventanapariente").fancybox({
+        'showCloseButton': false,
+        'width': 650,
+        'height': 370,
+        'autoSize': false,
+        'autoDimensions': false,
+        'transitionIn': 'none',
+        'transitionOut': 'none',
+        'type': 'iframe',
+        'beforeClose': function() {
+            window.location.reload();
+        }
+
+    });
+});
+</script>
+<div class="content">
+    <div class="container_12">
+    
+     <br /><br /> 
+    <ul class="breadcrumb">
+    <img src="<?php echo BASE_URL?>public/img/fecha_estas_en.png" style="vertical-align:middle" />
+   <span class="titulobreadcrumb">Est&aacute;s en :</span>
+   <li>Mi Cuenta <span class="divider">/</span></li>
+      <li class="active">Mis Parientes</li>
+    </ul>         
+    
+    	<div class="grid_12">
+        <br />
+            <a href="<?php echo BASE_URL; ?>micuenta/index" class="btn5" >
+            <img src="<?php echo BASE_URL; ?>public/img/mi_perfil.png" style="vertical-align:middle"/> 
+            Mi Perfil
+            </a> 
+
+            <a href="<?php echo BASE_URL; ?>micuenta/ListadoParientes" class="btn5" style="background-color:#da4f49">
+            <img src="<?php echo BASE_URL; ?>public/img/mis_parientes.png" style="vertical-align:middle"/> 
+            Mis Parientes
+            </a> 
+            
+            <a href="<?php echo BASE_URL; ?>micuenta/Listadoeventos" class="btn5">
+            <img src="<?php echo BASE_URL; ?>public/img/mis_eventos.png" style="vertical-align:middle"/>
+            Mis Eventos</a>
+            
+            <span>
+            	<img src="<?php echo BASE_URL; ?>public/img/vertical.png" />
+            </span>
+                        
+            <a href="<?php echo BASE_URL; ?>micuenta/Listadopedidos" class="btn5">
+             <img src="<?php echo BASE_URL; ?>public/img/mis_pedidos.png" style="vertical-align:middle"/>
+             Mis Pedidos
+            </a>
+
+            <a href="<?php echo BASE_URL; ?>micuenta/ListadoCarrito" class="btn5">
+            <img src="<?php echo BASE_URL; ?>public/img/mi_carrito.png" style="vertical-align:middle"/>
+            Mi Carrito
+            </a>
+                        
+        </div>
+         <br /><br />   
+        <div class="grid_12" >
+        	<div>
+        		<br />
+            	<font style="font-size:24px;font-weight:bold">Mis parientes</font>
+                <hr style="color:#999" /> <a href="<?php echo BASE_URL; ?>micuenta/nuevopariente" class="btn5 ventanapariente">
+<img src="<?php echo BASE_URL; ?>public/img/crear.png" style="vertical-align:middle"/> 
+                Crear</a> 
+        		<br/>
+        	</div>
+        </div> 
+        
+        <div class="grid_12">
+<div id="lista_registros">     
+<?php if (isset($this->misparientes) && count($this->misparientes)) : ?>   
+	<table class="table" style="width:100%; font-size:12px;">
+    <thead>
+        <tr>
+           <!-- <td><b>NUMERO DE IDENTIFICACI&Oacute;N</b></td>-->
+            <td><b>NOMBRE</b></td>
+            <td><b>PARENTESCO</b></td>
+            <td><b>ACCIONES</b></td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($this->misparientes as $misparientes):?>
+        <tr>
+            <!--<td><?php// echo $misparientes->nro_documento;?></td>-->
+            <td><?php echo $misparientes->nombres;?></td>
+            <td><?php echo $misparientes->parentesco;?></td>
+            <td>
+<a href="<?php echo BASE_URL; ?>micuenta/editarpariente/<?php echo $misparientes->id?>" class="btn2 ventanapariente">
+<img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> 
+Editar</a>    
+<a href="javascript:borrar_pariente(<?php echo $misparientes->id;?>)" class="btn4">
+<img src="<?php echo BASE_URL; ?>public/img/remover_todos.png" style="vertical-align:middle"/> 
+Eliminar
+</a>
+            </td>
+        </tr>    
+   <?php endforeach;?>  
+   		<tr>
+        	<td colspan="3">       
+    <div class="clear"></div>     
+     <?php if (isset($this->paginacion)) echo $this->paginacion; ?>                                      
+     		</td>
+        </tr>    
+    </tbody>
+</table>
+<?php else: ?>
+	<div class='alert alert-info'>
+		<strong>No hay parientes asociados.</strong>
+	</div>
+<?php endif; ?>
+</div>
+		</div>
+        
+    </div>
+</div>        

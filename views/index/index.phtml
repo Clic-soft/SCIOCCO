@@ -1,0 +1,113 @@
+<table style="margin:10px auto;" align="center" cellspacing="0" cellpadding="15" width="1200" border="0">
+    <tr>
+        <td align="center" width="300">
+			<?php if (Session::get('autenticado_cemcop')): ?>
+              <a class="menuicon" href="<?php echo BASE_URL; ?>menuconfiguracion" > <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/configuracion.png"/><br/>
+    Configuraci&oacute;n </a>
+              <?php else: ?>
+              <span class="muted"> <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/configuracion_bn.png"/><br/>
+    Configuraci&oacute;n </span>
+             <?php endif; ?>
+         </td>
+        	<td  align="center" width="300">
+        <?php if (Session::get('autenticado_cemcop')): ?>
+            <a class="menuicon" href="<?php echo BASE_URL; ?>menupaginaweb" >
+                <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/pagina_web.png"/><br/>
+                Recursos Web
+            </a>  
+		<?php else: ?>  
+                <span class="muted">
+                    <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/pagina_web-1.png"/><br/>
+                Recursos Web
+                </span>
+        <?php endif; ?> 
+            </td>    
+    
+        <td align="center" width="300">
+        <?php if (Session::get('autenticado_cemcop')): ?>
+            <a class="menuicon" href="<?php echo BASE_URL; ?>menuempresa" >
+                <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/empresa.png"/><br/>
+                Cemcop
+            </a>  
+		<?php else: ?>  
+                <span class="muted">
+                    <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/empresa-1.png"/><br/>
+                Cemcop
+                </span>
+        <?php endif; ?> 
+        </td>
+        <td align="center" width="300">
+        <?php if (Session::get('autenticado_cemcop')): ?>
+            <a class="menuicon" href="<?php echo BASE_URL; ?>menubienestar" >
+                <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/bienestar_social.png"/><br/>
+               	Bienestar Social
+            </a> 
+		<?php else: ?>  
+                <span class="muted">
+                    <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/bienestar_social-1.png"/><br/>
+                    Bienestar Social
+                </span>
+        <?php endif; ?>  
+        </td>
+ 
+       </tr>
+<tr>
+        <td align="center" width="300">
+          <?php if (Session::get('autenticado_cemcop')): ?>
+          <a class="menuicon" href="<?php echo BASE_URL; ?>servicio" > <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/servicios.png"/><br/>
+Servicios </a>
+          <?php else: ?>
+          <span class="muted"> <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/servicios-1.png"/><br/>
+Servicios </span>
+          <?php endif; ?>
+          </td>
+        <td align="center" width="300">
+			<?php if (Session::get('autenticado_cemcop')): ?>
+              <a class="menuicon" href="<?php echo BASE_URL; ?>avisoslegales" > <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/avisos_legales.png"/><br/>
+    Avisos Legales </a>
+              <?php else: ?>
+              <span class="muted"> <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/avisos_legales-1.png"/><br/>
+    Avisos Legales </span>
+             <?php endif; ?>
+
+        </td>       
+        <td align="center" width="300">
+        <?php if (Session::get('autenticado_cemcop')): ?>
+            <a class="menuicon" href="<?php echo BASE_URL; ?>noticias" >
+                <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/noticias.png"/><br/>
+               	Noticias
+            </a> 
+		<?php else: ?>  
+            <span class="muted">
+                <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/noticias-1.png"/><br/>
+                Noticias
+            </span>
+        <?php endif; ?>  
+        
+
+         </td>
+            <td align="center" width="300">
+            <?php if (Session::get('autenticado_cemcop')): ?>
+              <a class="menuicon" href="<?php echo BASE_URL; ?>menupedidos" > <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/pedidos.png"/><br/>
+    Compras </a>
+              <?php else: ?>
+              <span class="muted"> <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/pedidos_bn.png"/><br/>
+    Compras </span>
+            <?php endif; ?>
+            </td> 
+
+	</tr>
+		<tr>
+        <td align="center" width="300">
+			<?php if (Session::get('autenticado_cemcop')): ?>
+            <a class="menuicon" href="<?php echo BASE_URL; ?>menureportes" > <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/sub-reporte"/><br/>
+    Reportes </a>
+            <?php else: ?>
+            <span class="muted"> <img border="0" src="<?php echo BASE_URL; ?>public/img/menuprincipal/sub-reporte-1.png"/><br/>
+    Reportes </span>
+            <?php endif; ?>
+        </td>        
+
+        </tr>    
+        	
+</table>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        
+       <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css">
+       <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/form.css" />
+       
+       <style>
+	   button.btn5 {
+    margin-top: 5px;
+    color: #fff;
+    /*text-transform: uppercase;*/
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 30px;
+    background-color: #0B6EC7;
+    border-radius: 10px;
+    display: inline-block;
+	width:110px;
+	height:30px;
+	text-align:center;
+	margin-bottom:3px;
+	border: 0px solid #FFF;
+}
+	   </style>
+    </head>
+
+    <body >
+        <!-- CONTENIDO-->	
+        <div id="content" >
+		<div class="container_12" >
+            <div class="grid_12">
+            <form id="form" name="form1" method="post" action="" enctype="multipart/form-data" onsubmit="document.form1.send.disabled = true;">
+            	<input type="hidden" name="guardar" id="guardar" value="1" />
+            <br>
+            	<div align="center">
+            	<div style="width:140px; height:140px; background-color:#FFF;">
+             		<?php if (file_exists(ROOT_ADMIN."views/producto/fotos/".$this->detalle->archivo.".jpg")):?>       
+        				<img src="<?php echo BASE_URL_ADMIN . "views/producto/fotos/".$this->detalle->archivo.".jpg?nocache=".date("Y-m-d H:i:s").""?>" alt="" width="123" height="123" />
+           			<?php else:?>
+        				<img src="<?php echo BASE_URL . "public/img/imagen_no_disponible_123.png?nocache=".date("Y-m-d H:i:s").""?>" alt="" width="123" height="123" />
+        			<? endif;?>
+                </div>
+				</div>
+                <div >
+                     <span style="font-family:Arial, Helvetica, sans-serif;font-size:18px;"><?php echo $this->detalle->producto;?></span>
+            	</div>
+                <br>
+            	<div>
+            	<font style="font-family:Arial, Helvetica, sans-serif;font-size:18px;">Cantidad: </font>
+				<input type="text"  class="input-large" name="cantidad" id="cantidad" data-constraints="@Required" style="padding:1px;" placeholder="Cantidad" value="<?php echo $this->detalle->cantidad;?>">
+				</div>
+                <br>
+                <div>
+            	<font style="font-family:Arial, Helvetica, sans-serif;font-size:18px;">Precio: $<?php echo number_format($this->detalle->precio,0,",",".");?> </font></div>
+                <br>
+                <div class="grid_12" align="center">
+				<button type="submit" name="send" id="send" class="btn5" value="Editar">
+                   Editar
+                </button>
+           		</div>
+            </form> 
+            </div>  
+
+            <!-- ENDS content -->
+
+            <?php if (isset($this->_error)): ?>
+                <div  id="_error" class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <?php echo $this->_error; ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($this->_mensaje)): ?>
+                <div  id="_mensaje" class="alert alert-success">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <?php echo $this->_mensaje; ?>
+                </div>
+            <?php endif; ?>
+		</div>
+        </div>
+    </body>
+</html>     

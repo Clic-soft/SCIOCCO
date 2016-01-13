@@ -1,0 +1,237 @@
+
+.menu_block  {
+	z-index: 999;
+	position: relative;
+	float: left;
+	padding-top: 6px;
+	background: #323a47;
+	width: 100%;
+	border:0px solid #09C;
+}
+
+
+.menu_block nav {
+	position: relative;
+}
+
+
+nav>.sf-menu {
+	z-index: 990;
+	text-align: left;
+	position: relative;
+}
+nav{ position:relative;padding: 0px 0 0 0;}
+.sf-menu ul {position:absolute;top:-999px; display:none;list-style:none/* left offset of submenus need to match (see below) */}
+.sf-menu li {float:left;position:relative; list-style:none }
+.sf-menu>li {
+	display: block;
+	position: relative;
+	float: left;
+	font-size:14px;
+	/*text-transform: uppercase;*/
+	line-height: 20px;
+
+}
+
+
+
+.sf-menu>li+li a{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+.sf-menu>li>ul>li {
+  float: none;
+  position: static;
+}
+
+
+.sf-menu>li>a{
+	/*/*text-transform: uppercase;*/*/
+	text-align: center;
+	color: #fff;
+	display: block;
+	padding: 7px 24px 6px;
+	border: 1px solid transparent;
+}
+
+.sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li>a:hover {
+	border-color: #0B6EC7;
+}
+
+
+.sf-menu>li>a.sf-with-ul:after {
+	position: absolute;
+	content: '';
+	left: 50%;
+	margin-left: -3px;
+	width: 5px;
+	background: url(../img/arrows.png) 0 0 no-repeat;
+	height: 4px;
+	bottom: 3px;
+	pointer-events: none;
+	z-index: 999;
+	display: block;
+}
+
+.sf-menu>li.current>a.sf-with-ul:after, 
+.sf-menu>li.sfHover>a.sf-with-ul:after {
+}
+ 
+.sf-menu>li>ul>li>a.sf-with-ul:after {
+	content: '';
+    font-family: 'FontAwesome';
+	position: absolute;
+	width: 5px;
+	font-size: 15px;
+	line-height: 13px;
+	font-weight: normal;
+	right: -15px;
+	color: #696969;
+	bottom: 2px;
+	pointer-events: none;
+	z-index: 999;
+}
+
+
+
+
+/*================================>> 2 Level <<========================================*/
+.sf-menu>li ul {
+	left: 0;
+	z-index: 999; 
+	width: 131px;
+	padding-top: 14px;
+	background-color: #fff;
+	top: 41px;
+	padding-bottom: 16px;
+	list-style:none
+}
+
+.sf-menu li ul li {
+	position: relative;
+	text-align: left;
+	float: none !important;
+	font-size: 12px;
+	padding-left: 10px;
+	line-height: 15px;
+	color: #fff;
+	text-transform: none;
+	list-style:none
+}
+
+.sf-menu li ul li+li {
+	margin-top: 13px;
+}
+
+.sf-menu li ul li+li+li {
+	margin-top: 14px;
+}
+
+.sf-menu li ul li+li a {
+}
+
+
+.sf-menu li ul li a{
+	position: relative;
+	z-index: 999;
+	color: #696969;	
+}
+
+
+
+
+
+.sf-menu li li a:hover, 
+.sf-menu li.sfHover li.sfHover>a {  
+	color: #0089e1;
+}
+
+/*================================>> 3 Level <<========================================*/
+.sf-menu>li ul li ul{
+	position: absolute;
+	left: 141px;
+	top: -14px;
+	width: 132px;
+	/*background-color: #0089e1;*/
+	background-color:#0B6EC7;
+	padding-bottom: 17px;
+	list-style:none
+}
+
+.sf-menu li ul ul li {
+	padding-left: 5px;
+	list-style:none
+}
+
+.sf-menu li ul ul li a {
+	color: #fff;
+	font-weight:bold;
+}
+
+.sf-menu li ul ul li a:hover
+{
+	color: #696969;
+	font-weight:bold;
+}
+
+
+/*==================================RESPONSIVE LAYOUTS===============================================*/
+
+
+@media only screen and (max-width: 995px) {
+
+
+	.sf-menu>li{
+	}
+
+	.sf-menu li.sfHover li.sfHover ul{
+		left: 155px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.menu_block {
+		float: none !important;
+		padding: 20px 0px 25px !important;
+		clear: both;
+		margin: 0;
+		min-height: 0px;
+  		border: none;
+	}
+
+	
+
+  .menu_block  nav{
+  	border: none !important;
+		float:none !important;
+		font:12px/15px Arial, Helvetica, sans-serif;
+		/*text-transform:uppercase;*/
+		color:#927c67;
+		margin: 0 auto;
+		padding-left: 0 !important;
+		
+	
+	}
+
+	
+
+  header nav ul {
+  	border: none;
+  }
+
+	.sf-menu{display:none !important; float: none;}
+
+	#mm0{
+		font:12px/15px Arial, Helvetica, sans-serif;
+		color:#202020;
+		width:100%;
+		margin: 0 auto;
+		float: none;
+    outline: none;
+		border:2px solid #fff;
+	}
+	
+
+}

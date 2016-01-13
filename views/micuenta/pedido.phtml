@@ -1,0 +1,171 @@
+<?php
+setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
+date_default_timezone_set('America/Bogota');
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pedido <?php echo $this->pedido->nro_pedido;?></title>
+        <link rel = "shortcut icon" type = "image/png" href = "<?php echo BASE_URL; ?>public/img/favicon.ico" />
+        <link rel = "apple-touch-icon-precomposed" href = "<?php echo BASE_URL; ?>public/img/favicon-apple.png">
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>public/js/funciones.js"></script>
+        <style>
+		
+        .datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #000203; -webkit-border-radius: 9px; -moz-border-radius: 9px; border-radius: 9px; }.datagrid table td, .datagrid table th { padding: 1px 1px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #E1E1E1), color-stop(1, #F0F0F0) );background:-moz-linear-gradient( center top, #F0F0F0 5%, #F0F0F0 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0', endColorstr='#F0F0F0');background-color:#F0F0F0; color:#000000; font-size: 12px; font-weight: bold;text-align:center; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #000000; font-size: 12px;font-weight: bold;text-align:center; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }
+        </style>
+        <style>
+.cabezote{font-weight:bold; color:#000000; font-size:15px; text-align:center; font-family:arial, helvetica, sans-serif;line-height:1;}
+.subcabezote{font-weight:bold; color:#000000; font-size:12px; text-align:center; font-family:arial, helvetica, sans-serif;line-height:1;}		
+.titulos{font-weight:bold; color:#000000; font-size:12px; text-align:left; font-family:arial, helvetica, sans-serif;line-height:1;}
+.titulostabla{font-weight:bold; color:#000000; font-size:10px; text-align:center; font-family:arial, helvetica, sans-serif;line-height:1;}
+.texto{color:#000000; font-size:10px; text-align:left; font-family:arial, helvetica, sans-serif;line-height:1;}
+.textotabla{color:#000000; font-size:10px; font-family:arial, helvetica, sans-serif;line-height:1;}
+		</style>
+        <style>
+.cabecera table { border-collapse: collapse; text-align: left; width: 100%;} .cabecera {font: normal 11px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden;  border:solid 1px #000000; -webkit-border-radius: 9px; -moz-border-radius: 9px; border-radius: 9px; }.cabecera table td, .cabecera table th { padding: 4px 4px;  border:solid 1px #000000; }.cabecera table thead td {color:#000000;  } .cabecera table thead th:first-child { border: none; }</style>
+
+<style>
+.contenido table { border-collapse: collapse; text-align: left; width: 100%;} .contenido {font: normal 11px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden;  border:solid 1px #000000; -webkit-border-radius: 9px; -moz-border-radius: 9px; border-radius: 9px; }.contenido table td, .contenido table th { padding: 4px 4px;  border:solid 1px #000000; }.contenido table thead td {color:#000000;  } .contenido table thead th:first-child { border: none; }</style>
+
+<style>
+.pie table { vertical-align:top;border-collapse: collapse; width: 100%;} .pie {font: normal 10px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden;  border:solid 1px #000000; -webkit-border-radius: 9px; -moz-border-radius: 9px; border-radius: 9px; }.pie table td, .contenido table th { border:solid 1px #000000; }.pie table thead td {color:#000000;  } .pie table thead th:first-child { border: none; }</style>
+
+<style>
+.observacion table { border-collapse: collapse; text-align: left; width: 100%;} .observacion {font: normal 11px/150% Arial, Helvetica, sans-serif; background: #F0F0F0; overflow: hidden;  border:solid 1px #F0F0F0; -webkit-border-radius: 9px; -moz-border-radius: 9px; border-radius: 9px; }.observacion table thead td {color:#000000;  }</style>
+    </head>
+    
+    <div id="divButtons" name="divButtons" style="margin-left:250px;margin-bottom:-50px;">
+            <button name="boton"   class="menu" title="Imprimir" onclick="printPage()" style="background-color:#FFFFFF">
+                <img src="<?php echo BASE_URL; ?>public/img/print.png"  />
+            </button>
+        </div>
+        
+    <body  >        
+<table align="center" style="width:800px;" >
+<tr><td>
+	<table style="width:800px;" ><tr><td>
+		<table style="width:800px;"><tr>
+		<td width="137" align="left" valign="middle">
+		<img src="<?php echo BASE_URL; ?>public/img/logo-color.png" width="120" height="120" >
+		</td>
+		<td colspan="2" class="cabezote">Cooperativa Multiactiva de Empleados Colgate-Palmolive
+		  <font class="subcabezote"><br><?php echo $this->empresa->direccion." &nbsp; Tel: ".$this->empresa->telefono_fijo." &nbsp; Fax: ".$this->empresa->fax;?>
+		  <br>Pedido via web &nbsp;    &nbsp; www.cooperativacemcop.com</font></td>
+		<td width="137" align="right" valign="middle">
+        	<div class="datagrid" align="center" style="margin-right:-4px;margin-top:5px;width:120px;height:70px;"><table>
+			<thead><tr><th style="height:30px;font:Arial, Helvetica, sans-serif;font-size:16px;">Pedido N°</th></tr></thead>
+			<tbody><tr><td style="height:40px;font:Arial, Helvetica, sans-serif;font-size:16px;"><?php echo $this->pedido->nro_pedido;?></td></tr>
+            </tbody>
+			</table></div>
+		</td>
+		</tr></table>
+	</td></tr></table>
+   <!-- fin cabezote-->
+    <table style="width:800px;"><tr><td>
+    	<div class="cabecera" style="width:800px;">
+    	<table><tr>
+        <thead ><td width="84" class="titulos">AFILIADO:</td>
+        <td width="340" class="titulos"><?php echo $this->pedido->afiliado ; ?></td>
+        <td width="130" class="titulos">FECHA PEDIDO:</td>
+        <td width="220" class="titulos"><?php echo date('Y-m-d H:i:s',strtotime($this->pedido->fecha_pedido)); ?></td></thead>
+        </tr>
+        <tr>
+        <thead><td width="" class="titulos">CÉDULA:</td>
+        <td width="" class="titulos"><?php echo $this->afiliado->nro_documento ; ?></td>
+        <td width="" class="titulos">EMAIL:</td>
+        <td width="" class="titulos"><?php echo $this->afiliado->correo ; ?></td>
+        </thead>
+        </tr>
+        <tr>
+        <thead><td width="" class="titulos">DIRECCIÓN:</td>
+        <td width="" class="titulos"><?php echo $this->afiliado->direccion ; ?></td>
+        <td width="" class="titulos">DOMICILIO:</td>
+        <td width="" class="titulos"><?php if ($this->pedido->domicilio == 1 ){ ?>
+        SI
+        <?php }elseif ($this->pedido->domicilio == 2 ){ ?>
+        NO
+        <?php }elseif ($this->pedido->domicilio == 3 ){ ?>
+        SI, FUERA DE CALI
+        <?php }?></td></thead>
+        </tr>
+        <tr>
+        <thead><td width="" class="titulos">CIUDAD:</td>
+        <td width="" class="titulos"><?php echo $this->afiliado->ciu ; ?></td>
+        <td width="" class="titulos">CENTRO DE COSTOS:</td>
+        <td width="" class="titulos"><?php echo $this->afiliado->centro_costos ; ?></td></thead>
+        </tr>
+        <tr>
+        <thead><td width="" class="titulos">TÉLEFONO:</td>
+        <td width="" class="titulos"><?php echo $this->afiliado->telefono ; ?>
+        
+        <td width="" class="titulos">FORMA DE PAGO:</td>
+        <td width="" class="titulos"><?php if ($this->pedido->forma_pago == 1 ){ ?>
+        NOMINA
+        <?php }elseif ($this->pedido->forma_pago == 2 ){ ?>
+        CTAC
+        <?php }?></td></thead>
+        </tr></table>
+        </div>
+    </td></tr></table>
+    <!--fin encabezado pedido-->
+    <table style="width:800px;"  ><tr><td>
+		<div class="contenido" style="width:800px;">    
+    	<?php if (isset($this->detalle) && count($this->detalle)) : ?>
+		<table align="center" class="table table-bordered table-condensed table-striped" style="width:800px;">
+        <tr>
+        <td class="titulostabla">CÓDIGO</td>
+        <td class="titulostabla">PRODUCTO</td>
+        <td class="titulostabla">CANTIDAD</td>
+        <td class="titulostabla">VALOR UNITARIO</td>
+        <td class="titulostabla">SUB TOTAL</td>
+        </tr>
+        <?php foreach ($this->detalle as $detalles): ?>  
+		<tr id="<?php echo $detalles->id; ?>">
+        <td class="textotabla"><?php echo $detalles->codigo ; ?></td>
+        <td class="textotabla"><?php echo $detalles->producto ; ?></td>
+        <td class="textotabla" align="center"><?php echo $detalles->cantidad ; ?></td>
+        <td class="textotabla" align="right">$<?php echo number_format($detalles->valor_unitario,0,",",".") ; ?></td>
+        <td class="textotabla" align="right">$<?php echo number_format($detalles->sub_total,0,",",".") ; ?></td>
+ 		</tr>
+        <?php endforeach;?> 
+        <tr><td colspan="4" align="center">TOTAL</td><td align="right">$<?php echo number_format($this->pedido->valor_total,0,",",".");?>
+        </td></tr>	</table>
+        <?php endif;?>
+        </div>
+    </td></tr></table>
+    <!--fin detalle pedido-->
+    <table style="width:800px;"  ><tr><td>
+    <div class="pie" style="width:800px;" >
+    	<table style="width:800px;"><tr height="50"><td class="titulostabla" style="text-align:left;" valign="top" width="200">FECHA DESPACHO:<br><br>
+        <font style="font-size:18px;color:#E0E0E0;margin-left:20%;margin-top:20px;">D&nbsp;D&nbsp;<b style="color:#000;">/</b>&nbsp;M&nbsp;M&nbsp;<b style="color:#000;">/</b>&nbsp;A&nbsp;A</font>
+        </td>
+    	<td class="titulostabla" style="text-align:left;" valign="top" width="300">TRANSPORTADORA:<br>&nbsp;<br>&nbsp;</td>
+    	<td class="titulostabla" style="" valign="bottom" width="300">___________________________________<br><b style="margin-left:-80%;font-size:12px;">C.C.</b></td></tr>
+    	</table>
+    	</div>
+    	<div class="observacion" style="width:800px;">
+    	<table style="width:800px;"  ><tr><td>  
+    		<font class="titulostabla">OBSERVACIONES:</font> <font class="textotabla"><?php echo $this->pedido->ok_pedidoobservaciones; ?></font>
+		</td></tr>
+		</table>
+		</div>
+
+    	<div class="observacion" style="width:800px;margin-top:2px;">
+    	<table style="width:800px;"  ><tr><td>  
+    		<font class="titulostabla">IMPORTANTE:</font><font class="textotabla"><?php echo $this->pedido->ok_pedidoobservaciones; ?></font>
+		</td></tr>
+		</table>
+		</div>
+        </td></tr></table>
+</td></tr>
+</table>    
+        
+    </body>
+</html>
+
+
+
+
+
+
+

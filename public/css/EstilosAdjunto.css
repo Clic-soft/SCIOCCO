@@ -1,0 +1,89 @@
+
+body {
+    position:relative;
+    background-color:#F2F2F2;
+    margin-top:30px;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:11px;
+    text-decoration:none;
+
+}
+
+#content{
+    overflow: hidden;
+   /* margin-bottom: 15px; /*Margen con el pie*/
+    background: #fff; 
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    height: 270px;
+    border: 2px solid #1267a8;
+}
+
+/* TITLE --------------------------------------------------------*/
+
+#page-title{
+    overflow: hidden;
+    height: 25px;
+    text-align:center;
+    background-position: bottom center;
+    margin-top: 15px;
+
+}
+hr { 
+    background-color: #717A80; 
+    height: 1px;
+}
+
+#page-title .TituloSubmenu{
+    color:#000;
+    font-size:18px;
+    font-weight:bold;
+    margin-top: 10px;
+
+}
+
+/*MENSAJES DE ERROR FORMULARIOS*/
+.msg{
+    width:300px; /* Same width as both columns */
+    margin:auto; /* Will center the container */
+    text-align:center;
+    padding-bottom: 10px;
+}
+.success { 
+    color: #E30513; 
+    font-weight: bold; 
+    font-size:12px; 
+}
+
+.error { 
+    color: #F50C0C; 
+    font-weight: bold; 
+    font-size: 12px; 
+}
+
+/**********************ESTILOS INPUT FILE*********************/
+
+#BrowserVisible {
+    width: 170px; 
+    margin-left: 2px;
+    margin-top: -24px;
+    z-index: 1;
+    /*  background:url(../img/adjuntar.png) 100% 0 no-repeat;*/
+}
+
+#FileField {
+    width:160px;
+
+}
+
+#archivo {
+    padding: 5px; 
+    width: 170px; 
+    -moz-opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    opacity:0;
+    z-index: 2;
+    cursor: pointer;
+
+}

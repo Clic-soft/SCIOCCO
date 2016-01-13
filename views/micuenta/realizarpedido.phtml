@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <script src="<?php echo BASE_URL; ?>public/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script src="<?php echo BASE_URL; ?>public/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="<?php echo BASE_URL; ?>views/micuenta/js/realizar_pedido.js" type="text/javascript"></script>
+    <script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css">
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/form.css" />
+    
+    <style>
+	   button.btn5 {
+    margin-top: 5px;
+    color: #fff;
+    /*text-transform: uppercase;*/
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 30px;
+    background-color: #0B6EC7;
+    border-radius: 10px;
+    display: inline-block;
+	width:110px;
+	height:30px;
+	text-align:center;
+	margin-bottom:3px;
+	border: 0px solid #FFF;
+}
+	   </style>
+       
+    </head>
+
+    <body >
+        <!-- CONTENIDO-->	
+        <div id="content" >
+		<div class="container_12" >
+            <div class="grid_12" style="text-align:center">
+                         <span style="font-family:Arial, Helvetica, sans-serif;font-size:18px;">Realizar Pedido</span>
+            </div>
+            <hr style="border:1px solid #CCC">
+            <div class="grid_12">
+            <form id="form" name="form" method="post" action="" enctype="multipart/form-data" onsubmit="document.form1.send.disabled = true;">
+            	<input type="hidden" name="guardar" id="guardar" value="1" />
+            <br>
+            	<font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;">Forma De Pago: </font>
+				<select id="fpago" name="fpago" style="padding:3px; height:35px;">
+                	<option value="">-Seleccione-</option>
+                	<option value="1" <?php if (isset($this->datos->fpago) and ($this->datos->fpago == 1)): ?> selected='selected' <?php endif; ?>>Nomina</option>
+                    <option value="2" <?php if (isset($this->datos->fpago) and ($this->datos->fpago == 2)): ?> selected='selected' <?php endif; ?>>Cuenta Ahorros</option>
+                </select>	
+				<br>
+                <br>
+                <font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;">Domicilio: </font>
+                <select id="domicilio" name="domicilio" style="padding:3px; height:35px;">
+                	<option value="">-Seleccione-</option>
+                	<option value="1" <?php if (isset($this->datos->domicilio) and ($this->datos->domicilio == 1)): ?> selected='selected' <?php endif; ?>>SI</option>
+                    <option value="2" <?php if (isset($this->datos->domicilio) and ($this->datos->domicilio == 2)): ?> selected='selected' <?php endif; ?>>NO</option>
+                    <option value="3" <?php if (isset($this->datos->domicilio) and ($this->datos->domicilio == 3)): ?> selected='selected' <?php endif; ?>>SI, FUERA DE CALI</option>
+                </select>
+                
+                <div id="ciu"><br><br><font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;">Ciudad: </font></div>
+                <select id="ciudad" name="ciudad" style="padding:3px; height:35px;">
+                	<option value="">-Seleccione-</option>
+                	<?php foreach ($this->ciudades as $ciudad): ?>
+                    <option value="<?php echo $ciudad->id; ?>" <?php if (!isset($this->datos->ciudad) and ($this->afiliado->ciudad == $ciudad->id)){ ?> selected='selected' <?php }else if (isset($this->datos->ciudad) and ($this->datos->ciudad == $ciudad->id)){ ?> selected='selected' <?php } ?>><?php echo $ciudad->ciudad; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                
+                <div id="direc"><br><br><font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;">Dirección: </font></div>
+                <input type="text" name="direccion" id="direccion" style="padding:3px; height:35px;" value="<?php if (isset($this->datos->direccion)){echo $this->datos->direccion; }else{echo $this->afiliado->direccion;}?>">
+                
+                <div id="centro"><br><br><font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;">Centro de Costos: </font></div>
+                <input style="padding:3px; height:35px;" type="text" name="cc" id="cc" value="<?php if (isset($this->datos->cc)){echo $this->datos->cc; }else{echo $this->afiliado->centro_costos; }?>">
+                <br><br>
+                <font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;">Correo: </font>
+                <input type="text" name="email" id="email" style="padding:3px; height:35px;" value="<?php if (isset($this->datos->email)){echo $this->datos->email; }else{echo $this->afiliado->email;}?>">
+                <br><br>
+                <font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;">Teléfono: </font>
+                <input type="text" name="telefono" id="telefono" style="padding:3px; height:35px;" value="<?php if (isset($this->datos->telefono)){echo $this->datos->telefono; }else{echo $this->afiliado->telefono;}?>">
+                <br><br>
+                <font style="font-family:Arial, Helvetica, sans-serif;font-size:16px;" >Observación: </font>
+                <textarea name="observacion" id="observacion" style="padding:2px; max-height:120px;"><?php if (isset($this->datos->observacion)) echo $this->datos->observacion; ?></textarea>
+                <br><br>
+                <div class="grid_12" align="center">
+				<button type="submit"  name="send" id="send" class="btn5" value="Terminar">
+                   Terminar
+                </button>
+           		</div>
+            </form> 
+            </div>  
+
+            <!-- ENDS content -->
+
+            <?php if (isset($this->_error)): ?>
+                <div  id="_error" class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <?php echo $this->_error; ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($this->_mensaje)): ?>
+                <div  id="_mensaje" class="alert alert-success">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <?php echo $this->_mensaje; ?>
+                </div>
+            <?php endif; ?>
+		</div>
+        </div>
+    </body>
+</html>     

@@ -1,0 +1,103 @@
+	<head>
+    	<title><?php if (isset($this->titulo)) echo $this->titulo; ?></title>
+     	<meta charset="utf-8">
+     	<meta name = "format-detection" content = "telephone=no" />
+     	<link rel="icon" href="images/favicon.ico">
+     	<link rel = "shortcut icon" type = "image/png" href = "<?php echo BASE_URL; ?>public/img/favicon.ico" />
+
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/jquery.fancybox.css" />
+<script src="<?php echo BASE_URL; ?>public/js/jquery.fancybox.js"></script>
+     
+     	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/style.css">
+     	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css" >
+        <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/custom-theme/jquery-ui-1.10.3.custom.css"> 
+
+		<style type="text/css">
+			.titulo1{
+			font-size:20px;
+			color:#a0a2a2;
+			font-weight:900;
+			}
+
+			.titulo2{
+			font-size:14px;
+			color:#a0a2a2;
+			font-weight:900;
+			}
+
+			.form_imput{
+			width:240px;
+			height:32px;
+			border:1px solid #cdcfd2;
+			}
+
+			.form_imput::-moz-placeholder{
+			color:#777;opacity:
+			}
+
+			.form_imput:focus{
+			border-color:#0B6EC7;
+			-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7;
+			box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7
+			}
+			
+		</style>
+	</head>
+     
+<div class="content">
+    <div class="container_12">
+    	<br>
+    	<div class="grid_12">
+    		<a style="text-align:left;" title="PANEL" href="<?php echo BASE_URL; ?>panel"><img src="<?php echo BASE_URL; ?>public/img/prev.png" align="left"></a>
+    	</div>		
+
+        <div >
+            <div align="left">
+                <br />
+                <font style="font-size:18px;font-weight:bold">TERMINOS Y CONDICIONES</font>
+                <hr style="color:#999" /> <a href="<?php echo BASE_URL; ?>terminos/nuevo_termino" class="btn5">
+                <img src="<?php echo BASE_URL; ?>public/img/crear.png" style="vertical-align:middle"/> 
+                Crear</a> 
+                <br/>
+            </div>
+        </div>
+
+        <div class="grid_12">
+            <div id="lista_registros">     
+                <?php if (isset($this->terminos) && count($this->terminos)) : ?>   
+                    <table class="table" style="width:100%; font-size:12px;">
+                    <thead>
+                        <tr>
+                            <td style="width:25%;"><b>NOMBRE</b></td>
+                            <td style="width:50%;"><b>DESCRIPCIÓN</b></td>
+                            <td style="width:25%;"><b>ACCIONES</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->terminos as $terminos):?>
+                            <tr>
+                                <td><?php echo $terminos->nombre;?></td>
+                                <td><?php echo $terminos->descripcion;?></td>
+                                <td>
+                                    <a href="<?php echo BASE_URL; ?>terminos/editar_termino/<?php echo $terminos->id?>" class="btn2 ventanaterminos"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> Editar</a>
+                                    <a href="javascript:borrar_termino(<?php echo $terminos->id;?>)" class="btn4"><img src="<?php echo BASE_URL; ?>public/img/remover_todos.png" style="vertical-align:middle"/> Eliminar</a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                        <tr>
+                            <td colspan="3">
+                                <div class="clear"></div>
+                                <?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <div class='alert alert-info'>
+                    <strong>No hay terminos y/o condiciones creadas.</strong>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+</div>    

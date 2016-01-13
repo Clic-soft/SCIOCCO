@@ -1,0 +1,93 @@
+	<head>
+    	<title><?php if (isset($this->titulo)) echo $this->titulo; ?></title>
+     	<meta charset="utf-8">
+     	<meta name = "format-detection" content = "telephone=no" />
+     	<link rel="icon" href="images/favicon.ico">
+     	<link rel = "shortcut icon" type = "image/png" href = "<?php echo BASE_URL; ?>public/img/favicon.ico" />
+
+        
+        <script src="<?php echo BASE_URL; ?>libs/tinymce/js/tinymce/tinymce.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>libs/tinymce/js/tinymce/langs/es_MX.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
+     
+     	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/style.css">
+     	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css" >
+        <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/custom-theme/jquery-ui-1.10.3.custom.css"> 
+
+		<style type="text/css">
+			.titulo1{
+			font-size:20px;
+			color:#a0a2a2;
+			font-weight:900;
+			}
+
+			.titulo2{
+			font-size:14px;
+			color:#a0a2a2;
+			font-weight:900;
+			}
+
+			.form_imput{
+			width:240px;
+			height:32px;
+			border:1px solid #cdcfd2;
+			}
+
+			.form_imput::-moz-placeholder{
+			color:#777;opacity:
+			}
+
+			.form_imput:focus{
+			border-color:#0B6EC7;
+			-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7;
+			box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7
+			}
+			
+		</style>
+	</head>
+     
+    <body class="main_color" align="center">
+    	<br>
+    	<div class="grid_12">
+            <a style="text-align:left;" title="PANEL" href="<?php echo BASE_URL; ?>panel"><img src="<?php echo BASE_URL; ?>public/img/prev.png" align="left"></a>
+                
+            <a style="text-align:rigth;margin-left:80%" title="ROLES" href="<?php echo BASE_URL; ?>configuracion/roles"><img src="<?php echo BASE_URL; ?>public/img/menu_panel_adm/configuracion.png" align="rigth"></a>   
+        </div>  
+   		<br>
+   		<br>
+        <br>
+		<form id="form" name="form1" action="#" method="post">
+        	<input type="hidden" name="guardar" value="1" />
+                <?php if (isset($this->_error)): ?>
+            		<div id="_error" class="alert alert-error">
+	                	<a class="close" data-dismiss="alert">x</a>
+	                	<?php echo $this->_error; ?>
+            		</div>
+        		<?php endif; ?>
+
+        		<?php if (isset($this->_mensaje)): ?>
+            		<div id="_mensaje" class="alert alert-success">
+	                	<a class="close" data-dismiss="alert">x</a>
+	                	<?php echo $this->_mensaje; ?>
+            		</div>
+        		<?php endif; ?>
+        		
+        		<span class="titulo1">ROLES</span><br><br>
+			<table cellpadding="3" cellspacing="0" width="100%" border="0" style="margin-left:10%;">        
+    			<tr>
+               		<td><span class="titulo2">ROL :</span>
+               		</td>
+                    <td>
+                        <input type="text" class="form_imput" id="rol" name="rol" value="<?php if (isset($this->datos->rol)) echo $this->datos->rol; ?>" />
+                    </td>
+                </tr>                        
+        		<tr>
+                    <td colspan="2" align="center">
+                        <br>
+                    </td>
+                </tr>                   
+         </table> 
+         <a href="#" class="btn" onclick="document.getElementById('form').submit()">Guardar</a>
+ </form>
+ 
+ </body>

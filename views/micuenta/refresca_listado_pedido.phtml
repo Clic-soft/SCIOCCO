@@ -1,0 +1,31 @@
+<?php if (isset($this->pedidos) && count($this->pedidos)) : ?>
+          			<table class="tablanueva">
+                    	<thead>
+                        	<tr>
+                            	<th><h1>Nro Pedido</h1></th>
+                                <th><h1>Fecha</h1></th>
+                                <th><h1>Estado</h1></th>
+                                <th><h1>Valor</h1></th>
+                                <th><h1>&nbsp;</h1></th>
+                            </tr>
+                        </thead>
+					
+					<?php foreach ($this->pedidos as $pedido): ?>
+                    	<tbody>
+                        	<tr>
+                            	<td><?php echo $pedido->nro_pedido;?></td>
+                                <td><?php echo $pedido->fecha_pedido;?></td>
+                                <td><?php if($pedido->estado == 1){?> Solicitado <?php }else{?>	Despachado <?php }?></td>
+                                <td><?php echo number_format($pedido->valor_total,0,",",".");?></td>
+                                <td><a href='<?php echo BASE_URL . 'micuenta/ver_pedido/' . $pedido->id; ?>' onclick="window.open(this.href, 'mywin' , 'left=20,top=20,width=810,height=500,toolbar=1,resizable=0'); return false;" class="btn5 editar" ><img src="<?php echo BASE_URL; ?>public/img/pedido.png" style="vertical-align:middle"/> Ver</a></td>
+                            </tr>
+						</tbody>                                      
+          			<?php endforeach;?>
+                    </table>
+                    <div class="clear"></div>
+					<?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+					<?php else: ?>
+                    	<div class='alert alert-info'>
+                           	<strong>No se han Pedidos.</strong>
+                        </div>
+					<?php endif; ?>

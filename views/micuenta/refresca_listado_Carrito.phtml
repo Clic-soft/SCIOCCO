@@ -1,0 +1,54 @@
+<?php $canttotal=0; $totalfinal=0;
+         if (isset($this->totales) && count($this->totales)) : 
+         $canttotal=$this->totales->cant; $totalfinal=$this->totales->subto;
+         endif; ?>
+
+<?php if (isset($this->Micarrito) && count($this->Micarrito)) : ?>
+          			<?php foreach ($this->Micarrito as $carrito): ?>
+                    <div class="grid_12" style="margin-bottom:10px;background-color:#FFF;border:#E8E8E8 1px solid;padding-left:5px;">
+   					   	<div class="grid_2" style="width:140px; height:115px; background-color:#FFF;">
+             				<?php if (file_exists(ROOT_ADMIN."views/producto/fotos/$carrito->archivo.jpg")):?>       
+        						<img src="<?php echo BASE_URL_ADMIN . "views/producto/fotos/".$carrito->archivo.".jpg?nocache=".date("Y-m-d H:i:s").""?>" alt="" width="110" height="110" />
+           					<?php else:?>
+        						<img src="<?php echo BASE_URL . "public/img/imagen_no_disponible_123.png?nocache=".date("Y-m-d H:i:s").""?>" alt="" width="110" height="110" />
+        					<? endif;?>
+                        </div>
+                        <div class="grid_4" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">	
+							<b>Producto:</b> <?php echo substr($carrito->producto,0,40); ?>
+                        </div>
+                        <div class="grid_2" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                           	<b>Cantidad</b>: <?php echo $carrito->cantidad; ?>
+                        </div>
+                        <div class="grid_1" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                           	<b>Precio Unitario:</b> $<?php echo number_format($carrito->precio,0,",","."); ?></font>
+                        </div>
+                        <div class="grid_1" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                           	<b>Precio Total:</b> $<?php echo number_format($carrito->subtotal,0,",","."); ?></font>
+                        </div>
+                        <div class="grid_2">
+                        	<a href="<?php echo BASE_URL; ?>micuenta/EditarDetalle/<?php echo trim($carrito->id) ?>" class="btn5 editar" ><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> Editar</a>
+                           	<a href="#" class="btn5 delete" onClick="javascript:borrar_detalle_carrito(<?php echo trim($carrito->id)?>)" style="background-color:#da4f49;"><img src="<?php echo BASE_URL; ?>public/img/eliminar.png" style="vertical-align:middle"/> Eliminar</a>
+                        </div>
+					</div>
+					<?php endforeach;?>
+                    <div class="clear"></div>
+                    
+                    
+                    <?php if (isset($this->Micarrito) && count($this->Micarrito)) : ?>
+            <div class="container_12">
+                <div class="grid_6" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                <b>Cantidad Total de Productos:</b> <?php echo number_format($canttotal,0,",","."); ?></font>	
+                </div>
+                <div class="grid_6" style="font-family:Arial, Helvetica, sans-serif; font-size:14px;">
+                <b>Valor Total en Carrito:</b> $<?php echo number_format($totalfinal,0,",","."); ?></font>	
+                </div>
+            </div>
+            <?php endif; ?>
+                    
+                    
+					<?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+					<?php else: ?>
+                    	<div class='alert alert-info'>
+                           	<strong>No hay productos en tu carrito.</strong>
+                        </div>
+					<?php endif; ?>

@@ -1,0 +1,23 @@
+             <div class='alert alert-success'>
+                <strong>Gracias por participar en nuestra encuesta.</strong>
+            </div>
+            
+    	<div class="grid_5" style="color:#FFF">
+       <?php echo $this->encuestapre->titulo; ?><br /><br />
+       
+       <a href="<?php echo BASE_URL; ?>principal/resultadosEncuesta/<?php echo $this->encuestapre->id; ?>" style="color:#30c3f6" class="ventanaresultados">Ver resultados de la encuesta</a><br />
+       
+       Total Votos: <?php echo number_format($this->encuestapre->votos,0,',','.'); ?>
+       
+        </div>
+        <div class="grid_6" style="color:#FFF">
+        <? foreach($this->encuestares as $respuestas):?>
+        	<div class="grid_5">
+				<?php echo $respuestas->respuesta;?>
+            </div>
+            <div class="grid_1">   
+                <a href="javascript:realizar_votacion(<?php echo $respuestas->id ?>);" class="btn1 votar" >Votar</a>
+            </div>    
+            
+        <?php endforeach;?>
+        </div>
