@@ -1,0 +1,43 @@
+<?php if (isset($this->proveedor) && count($this->proveedor)) : ?>   
+    <table class="table" style="width:100%; font-size:12px;">
+        <thead>
+            <tr>
+                <td style="width:20%;"><b>PROVEEDOR</b></td>
+                <td style="width:15%;"><b>REPRESENTANTE COMERCIAL</b></td>
+                <td style="width:15%;"><b>CONTACTO</b></td>
+                <td style="width:15%;"><b>ESTADO</b></td>
+                <td style="width:40%;"><b>ACCIONES</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->proveedor as $proveedor):?>
+                <tr>
+                    <td><?php echo $proveedor->razon_social;?></td>
+                    <td><?php echo $proveedor->rep_comercial;?></td>
+                    <td><?php echo $proveedor->contacto;?></td>
+                    <td><?php if($proveedor->estado == 1){
+                            echo "Activo";
+                        }else{
+                            echo "Inactivo";
+                        }?> 
+                    </td>
+                    <td>
+                        <a href="<?php echo BASE_URL; ?>proveedores/editar_proveedor/<?php echo $proveedor->id?>" class="btn2 ventanaproveedor"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> Editar</a>
+
+                        <a href="javascript:borrar_proveedor(<?php echo $proveedor->id;?>)" class="btn4"><img src="<?php echo BASE_URL; ?>public/img/remover_todos.png" style="vertical-align:middle"/> Eliminar</a>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            <tr>
+                <td colspan="5">
+                    <div class="clear"></div>
+                    <?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<?php else: ?>
+    <div class='alert alert-info'>
+        <strong>No hay proveedores creados.</strong>
+    </div>
+<?php endif; ?>

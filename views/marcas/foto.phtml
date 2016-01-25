@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css">
+        <link href="<?php echo BASE_URL; ?>public/css/EstilosAdjunto.css" rel="stylesheet" type="text/css" /> 
+        <script src="<?php echo BASE_URL; ?>public/js/jquery.js" type="text/javascript"></script>
+
+    </head>
+
+    <body class="">
+        <!-- CONTENIDO-->	
+        <div id="content">
+
+            <div id="page-title">
+                         <span class="TituloSubmenu">Selecciona un archivo...</span>
+            </div>
+            <hr style="border:1px solid #CCC">
+            <form id="form" name="form1" method="post" action="" enctype="multipart/form-data" onsubmit="document.form1.send.disabled = true;">
+
+                         <table align="center" border="0" style="padding-top: 7px" >
+                    <input type="hidden" value="1" name="guardar" />
+                    <tr>
+                        <td width="10">
+                            <strong>Adjuntar:</strong>
+                        </td>
+                        <td width="60">
+                            <input  type="file" name="archivo"  id="archivo"  onchange="getElementById('FileField').value = getElementById('archivo').value;" >
+                            <div id="BrowserVisible"> 
+                                <input type="text" id="FileField" > 
+                            </div>
+                        </td>
+                   </tr>     
+                   <tr>     
+                        <td colspan="2" align="right">
+                            <button type="submit" name="send" id="send" class="btn btn-primary" value="Subir" style="margin-top: 5px;">
+                                Subir
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>   
+            <div style="text-align: center; margin-top: 15px; margin-bottom: 10px;">
+                <span class='success' style="color:#2CAFDD">
+                         Extensiones permitidas: .jpg, .png <br>
+                         La foto no puede exceder las 3000k o 3Mb.<br>
+                         Tama&ntilde;o recomendado 600px x 374px
+                </span>
+            </div>
+            <!-- ENDS content -->
+
+            <?php if (isset($this->_error)): ?>
+                <div  id="_error" class="alert alert-error">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <?php echo $this->_error; ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($this->_mensaje)): ?>
+                <div  id="_mensaje" class="alert alert-success">
+                    <a class="close" data-dismiss="alert">x</a>
+                    <?php echo $this->_mensaje; ?>
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </body>
+</html>     

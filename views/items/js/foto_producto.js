@@ -1,22 +1,8 @@
 $(document).ready(function() {
 
-    $(document.body).on('click', ".pagina", function() {
-        paginacion($(this).attr("pagina"));
-    });
-
-    var paginacion = function(pagina) {
-        var pagina = 'pagina=' + pagina;
-		
-        $.post(_ruta_ + 'usuarios/paginacionDinamicausuarios', pagina , function(data) {
-            $("#lista_registros").html('');
-            $("#lista_registros").html(data);
-        });
-
-    };
-
-    $(".ventanausuario").fancybox({
-        'showCloseButton': true,
-        'width': 670,
+    $(".ventanafoto").fancybox({
+        'showCloseButton': false,
+        'width': 650,
         'height': 370,
         'autoSize': false,
         'autoDimensions': false,
@@ -31,13 +17,13 @@ $(document).ready(function() {
 	
 });
 
-function borrar_usuario(id){
+    function borrar_foto(id){
         var valor = $(this).parent().parent().attr('id');
         var parent = $(this).parent().parent();
 
-        fancyConfirm("Est&aacute; seguro que desea eliminar el registro?",
+        fancyConfirm("Est&aacute; seguro que desea eliminar la foto?",
                 function() {
-                    var respuesta = $.post(_ruta_ + 'usuarios/eliminarusuario/'+ id);
+                    var respuesta = $.post('http://localhost/sciocco/items/eliminarFotoproducto/'+ id);
                     respuesta.done(function(data) {
                         alert(data);
                         if ($.isEmptyObject(data)) {

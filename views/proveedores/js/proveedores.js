@@ -7,14 +7,14 @@ $(document).ready(function() {
     var paginacion = function(pagina) {
         var pagina = 'pagina=' + pagina;
 		
-        $.post(_ruta_ + 'usuarios/paginacionDinamicausuarios', pagina , function(data) {
+        $.post(_ruta_ + 'proveedores/paginacionDinamicaproveedores', pagina , function(data) {
             $("#lista_registros").html('');
             $("#lista_registros").html(data);
         });
 
     };
 
-    $(".ventanausuario").fancybox({
+    $(".ventanaproveedor").fancybox({
         'showCloseButton': true,
         'width': 670,
         'height': 370,
@@ -31,13 +31,13 @@ $(document).ready(function() {
 	
 });
 
-function borrar_usuario(id){
+function borrar_proveedor(id){
         var valor = $(this).parent().parent().attr('id');
         var parent = $(this).parent().parent();
 
         fancyConfirm("Est&aacute; seguro que desea eliminar el registro?",
                 function() {
-                    var respuesta = $.post(_ruta_ + 'usuarios/eliminarusuario/'+ id);
+                    var respuesta = $.post(_ruta_ + 'proveedores/eliminarproveedor/'+ id);
                     respuesta.done(function(data) {
                         alert(data);
                         if ($.isEmptyObject(data)) {

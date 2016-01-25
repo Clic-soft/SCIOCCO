@@ -1,0 +1,32 @@
+<?php if (isset($this->tallas) && count($this->tallas)) : ?>   
+                    <table class="table" style="width:50%; font-size:12px;">
+                    <thead>
+                        <tr>
+                            <td style="width:30%;"><b>TALLA</b></td>
+                            <td style="width:40%;"><b>ACCIONES</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->tallas as $tallas):?>
+                            <tr>
+                                <td><?php echo $tallas->talla;?></td>
+                                <td>
+                                    <a href="<?php echo BASE_URL; ?>items/editar_talla/<?php echo $tallas->id?>" class="btn2 ventanatalla"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> Editar</a>
+
+                                    <a href="javascript:borrar_talla(<?php echo $tallas->id;?>)" class="btn4"><img src="<?php echo BASE_URL; ?>public/img/remover_todos.png" style="vertical-align:middle"/> Eliminar</a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                        <tr>
+                            <td colspan="4">
+                                <div class="clear"></div>
+                                <?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <div class='alert alert-info'>
+                    <strong>No hay tallas creadas.</strong>
+                </div>
+            <?php endif; ?>

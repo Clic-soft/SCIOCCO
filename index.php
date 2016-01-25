@@ -5,7 +5,7 @@ ini_set("memory_limit", "2048M"); // Aumentar memoria
 //echo uniqid();exit; id unico
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', realpath(dirname(__FILE__)) . DS);
-define('ROOT_ADMIN', "sciocco/" . DS);
+define('ROOT_ADMIN', "sciocco" . DS);
 
 define('APP_PATH', ROOT . 'application' . DS);
 

@@ -1,0 +1,38 @@
+<?php if (isset($this->cliente) && count($this->cliente)) : ?>   
+    <table class="table" style="width:100%; font-size:12px;">
+        <thead>
+            <tr>
+                <td style="width:20%;"><b>NOMBRE</b></td>
+                <td style="width:15%;"><b>TIPO DOCUMENTO</b></td>
+                <td style="width:15%;"><b>NUM. DOCUMENTO</b></td>
+                <td style="width:15%;"><b>FECHA REGISTRO</b></td>
+                <td style="width:15%;"><b>USUARIO</b></td>
+                <td style="width:25%;"><b>ACCIONES</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->cliente as $cliente):?>
+                <tr>
+                    <td><?php echo $cliente->nombre;?></td>
+                    <td><?php echo $cliente->tipo_doc;?></td>
+                    <td><?php echo $cliente->num_doc;?></td>
+                    <td><?php echo $cliente->fecha_reg;?></td>
+                    <td><?php echo $cliente->usuario;?></td>
+                    <td>
+                        <a href="<?php echo BASE_URL; ?>clientes/ver_cliente/<?php echo $cliente->id?>" class="btn3 ventanavcliente"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> VER</a>
+                    </td>
+                </tr>
+            <?php endforeach;?>
+            <tr>
+                <td colspan="6">
+                    <div class="clear"></div>
+                    <?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<?php else: ?>
+    <div class='alert alert-info'>
+        <strong>No hay Clientes creados.</strong>
+    </div>
+<?php endif; ?>

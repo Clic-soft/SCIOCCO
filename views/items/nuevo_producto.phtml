@@ -1,0 +1,156 @@
+	<head>
+    	<title><?php if (isset($this->titulo)) echo $this->titulo; ?></title>
+     	<meta charset="utf-8">
+     	<meta name = "format-detection" content = "telephone=no" />
+     	<link rel="icon" href="images/favicon.ico">
+     	<link rel = "shortcut icon" type = "image/png" href = "<?php echo BASE_URL; ?>public/img/favicon.ico" />
+     
+     	<link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/style.css">
+     	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css" >
+        <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/custom-theme/jquery-ui-1.10.3.custom.css"> 
+
+		<style type="text/css">
+			.titulo1{
+			font-size:20px;
+			color:#a0a2a2;
+			font-weight:900;
+			}
+
+			.titulo2{
+			font-size:14px;
+			color:#a0a2a2;
+			font-weight:900;
+			}
+
+			.form_imput{
+			width:240px;
+			height:32px;
+			border:1px solid #cdcfd2;
+			}
+
+			.form_imput::-moz-placeholder{
+			color:#777;opacity:
+			}
+
+			.form_imput:focus{
+			border-color:#0B6EC7;
+			-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7;
+			box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7
+			}
+			
+		</style>
+	</head>
+     
+    <body class="main_color" align="center">
+    	<br>
+    	<div class="grid_12">
+            <a style="text-align:left;" title="PANEL" href="<?php echo BASE_URL; ?>panel"><img src="<?php echo BASE_URL; ?>public/img/prev.png" align="left"></a>
+                
+            <a style="text-align:rigth;margin-left:80%" title="PRODUCTOS" href="<?php echo BASE_URL; ?>items/productos"><img src="<?php echo BASE_URL; ?>public/img/menu_panel_adm/marca.png" align="rigth"></a>   
+        </div>  
+   		<br>
+   		<br>
+        <br>
+		<form id="form" name="form1" action="#" method="post">
+        	<input type="hidden" name="guardar" value="1" />
+                <?php if (isset($this->_error)): ?>
+            		<div id="_error" class="alert alert-error">
+	                	<a class="close" data-dismiss="alert">x</a>
+	                	<?php echo $this->_error; ?>
+            		</div>
+        		<?php endif; ?>
+
+        		<?php if (isset($this->_mensaje)): ?>
+            		<div id="_mensaje" class="alert alert-success">
+	                	<a class="close" data-dismiss="alert">x</a>
+	                	<?php echo $this->_mensaje; ?>
+            		</div>
+        		<?php endif; ?>
+        		
+        		<span class="titulo1">PRODUCTOS</span><br><br>
+			<table cellpadding="3" cellspacing="0" width="100%" border="0" style="margin-left:10%;">
+                <tr>
+                    <td><span class="titulo2">MARCA :</span>
+                    </td>
+                    <td>
+                        <select class="form_imput" name="id_marca" id="id_marca" >
+                            <option value="">-Seleccione-</option>
+                            <?php foreach ($this->marca as $marca): ?>
+                                    <option value="<?php echo $marca->id; ?>" <?php if (isset($this->datos->id_marca) and ($this->datos->id_marca == $marca->id)): ?> selected='selected' <?php endif; ?>><?php echo $marca->marca; ?></option>
+        
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="titulo2">CATEGORIA :</span>
+                    </td>
+                    <td>
+                        <select class="form_imput" name="id_categoria" id="id_categoria" >
+                            <option value="">-Seleccione-</option>
+                            <?php foreach ($this->categoria as $categoria): ?>
+                                    <option value="<?php echo $categoria->id; ?>" <?php if (isset($this->datos->id_categoria) and ($this->datos->id_categoria == $categoria->id)): ?> selected='selected' <?php endif; ?>><?php echo $categoria->nombre_cat; ?></option>
+        
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td><span class="titulo2">SUBCATEGORIA :</span>
+                    </td>
+                    <td>
+                        <select class="form_imput" name="id_subcategoria" id="id_subcategoria" >
+                            <option value="">-Seleccione-</option>
+                            <?php foreach ($this->subcategoria as $subcategoria): ?>
+                                    <option value="<?php echo $subcategoria->id; ?>" <?php if (isset($this->datos->id_subcategoria) and ($this->datos->id_subcategoria == $subcategoria->id)): ?> selected='selected' <?php endif; ?>><?php echo $subcategoria->nombre_subcategoria; ?></option>
+        
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr> 
+
+                <tr>
+                    <td><span class="titulo2">REFERENCIA :</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form_imput" id="referencia" name="referencia" value="<?php if (isset($this->datos->referencia)) echo $this->datos->referencia; ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="titulo2">COLOR :</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form_imput" id="color" name="color" value="<?php if (isset($this->datos->color)) echo $this->datos->color; ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="titulo2">TALLA :</span>
+                    </td>
+                    <td>
+                        <select class="form_imput" name="talla" id="talla" >
+                            <option value="">-Seleccione-</option>
+                            <?php foreach ($this->talla as $talla): ?>
+                                    <option value="<?php echo $talla->id; ?>" <?php if (isset($this->datos->talla) and ($this->datos->talla == $talla->id)): ?> selected='selected' <?php endif; ?>><?php echo $talla->talla; ?></option>
+        
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="titulo2">PRECIO :</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form_imput" id="precio" name="precio" value="<?php if (isset($this->datos->precio)) echo $this->datos->precio; ?>" />
+                    </td>
+                </tr>                                  
+        		<tr>
+                    <td colspan="2" align="center">
+                        <br>
+                    </td>
+                </tr>                   
+         </table> 
+         <a href="#" class="btn" onclick="document.getElementById('form').submit()">Guardar</a>
+         <br>
+ </form>
+ 
+ </body>

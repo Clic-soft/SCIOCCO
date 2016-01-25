@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+     <title><?php if (isset($this->titulo)) echo $this->titulo; ?></title>
+     <meta charset="utf-8">
+     <meta name = "format-detection" content = "telephone=no" />
+     <link rel="icon" href="images/favicon.ico">
+     <link rel = "shortcut icon" type = "image/png" href = "<?php echo BASE_URL; ?>public/img/favicon.ico" />
+     
+     <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/style.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css" >
+     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/custom-theme/jquery-ui-1.10.3.custom.css">
+        
+     <script src="<?php echo BASE_URL; ?>public/js/jquery.js"></script>
+     <script src="<?php echo BASE_URL; ?>public/js/jquery_migrate.js"></script>
+     <script src="<?php echo BASE_URL; ?>public/js/script.js"></script> 
+     <script src="<?php echo BASE_URL; ?>public/js/superfish.js"></script>
+     <script src="<?php echo BASE_URL; ?>public/js/jquery.ui.totop.js"></script>
+     <script src="<?php echo BASE_URL; ?>public/js/jquery.equalheights.js"></script>
+     <script src="<?php echo BASE_URL; ?>public/js/jquery.mobilemenu.js"></script>
+     <script src="<?php echo BASE_URL; ?>public/js/jquery.easing.1.3.js"></script>
+     <script src="<?php echo BASE_URL; ?>public/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+	 <script src="<?php echo BASE_URL; ?>public/js/CalendarioEspanol.js" type="text/javascript"></script>
+     
+     <!--[if (gt IE 9)|!(IE)]><!-->
+     <script src="<?php echo BASE_URL; ?>public/js/jquery.mobile.customized.min.js"></script>
+     <!--<![endif]-->
+
+
+    <!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+         </a>
+      </div>
+      <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <link rel="stylesheet" media="screen" href="css/ie.css">
+
+
+    <![endif]-->
+
+    
+
+<style type="text/css">
+            .titulo1{
+            font-size:20px;
+            color:#a0a2a2;
+            font-weight:900;
+            }
+
+            .titulo2{
+            font-size:14px;
+            color:#a0a2a2;
+            font-weight:900;
+            }
+
+            .form_imput{
+            width:240px;
+            height:32px;
+            border:1px solid #cdcfd2;
+            }
+
+            .form_imput::-moz-placeholder{
+            color:#777;opacity:
+            }
+
+            .form_imput:focus{
+            border-color:#0B6EC7;
+            -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7;
+            box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #0B6EC7
+            }
+            
+        </style>
+
+     </head>
+     
+     <body class="main_color" align="center"> 
+        <br>
+        <br>
+        <form id="form" name="form1" action="#" method="post">
+            <input type="hidden" name="guardar" value="1" />
+                <?php if (isset($this->_error)): ?>
+                    <div id="_error" class="alert alert-error">
+                        <a class="close" data-dismiss="alert">x</a>
+                        <?php echo $this->_error; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (isset($this->_mensaje)): ?>
+                    <div id="_mensaje" class="alert alert-success">
+                        <a class="close" data-dismiss="alert">x</a>
+                        <?php echo $this->_mensaje; ?>
+                    </div>
+                <?php endif; ?>
+                
+                <span class="titulo1">MARCA</span><br><br>
+            <table cellpadding="3" cellspacing="0" width="90%" border="0" style="margin-left:5%;">        
+                <tr>
+                  <td><span class="titulo2">PROVEEDOR :</span>
+                  </td>
+                    <td>
+                        <select class="form_imput" name="id_proveedor" id="id_proveedor" >
+                            <option value="">-Seleccione-</option>
+                            <?php foreach ($this->proveedor as $proveedor): ?>
+                                    <option value="<?php echo $proveedor->id; ?>" <?php if (isset($this->datos->id_proveedor) and ($this->datos->id_proveedor == $proveedor->id)): ?> selected='selected' <?php endif; ?> > 
+                                        <?php echo $proveedor->razon_social; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="titulo2">MARCA :</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form_imput" id="marca" name="marca" value="<?php if (isset($this->datos->marca)) echo $this->datos->marca; ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="titulo2">ESTADO:</span>
+                    </td>
+                    <td>
+                        <select class="form_imput" id="estado" name="estado">
+                            <option value="1" <?php if($this->datos->estado == 1){ ?> selected <?php } ?> >ACTIVO</option>
+                            <option value="2" <?php if($this->datos->estado == 2){ ?> selected <?php } ?> >INACTIVO</option>
+                        </select>
+                    </td>
+                </tr> 
+                                  
+                <tr>
+                    <td colspan="2" align="center">
+                        <br>
+                    </td>
+                </tr>                   
+         </table> 
+         <a href="#" class="btn" onclick="document.getElementById('form').submit()">Guardar</a>
+ </form>
+ 
+ </body>

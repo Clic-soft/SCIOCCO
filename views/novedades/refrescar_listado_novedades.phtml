@@ -1,0 +1,51 @@
+
+<?php if (isset($this->novedad) && count($this->novedad)) : ?>   
+                    <table class="table" style="width:100%; font-size:12px;">
+                    <thead>
+                        <tr>
+                            <td style="width:10%;"><b>TIPO NOVEDAD</b></td>
+                            <td style="width:10%;"><b>NOMBRE</b></td>
+                            <td style="width:25%;"><b>DESCRIPCION</b></td>
+                            <td style="width:30%;"><b>ACCIONES</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->novedad as $novedad):?>
+                            <tr>
+                                <td><?php echo $novedad->tnov;?></td>
+                                <td><?php echo $novedad->nombre;?></td>
+                                <td><?php echo $novedad->descripcion;?></td>
+                                <td>
+                                    <a href="<?php echo BASE_URL; ?>novedades/editar_novedad/<?php echo $novedad->id?>" class="btn2 ventananovedad"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> EDITAR</a>
+                                    
+                                    <?php if ($novedad->archivo == "") { ?>
+
+                                        <a href="<?php echo BASE_URL; ?>novedades/subir_foto/<?php echo $novedad->id?>" class="btn3 ventanafoto"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/>SUBIR FOTO</a>
+
+                                    <?php } 
+
+                                    if ($novedad->archivo <> ""){ ?>
+
+                                        <a href="javascript:borrar_foto(<?php echo $novedad->id;?>)" class="btn4"><img src="<?php echo BASE_URL; ?>public/img/remover_todos.png" style="vertical-align:middle"/> BORRAR FOTO</a>
+                                        
+                                    <?php } ?>
+
+                                    <a href="<?php echo BASE_URL; ?>novedades/ver_novedad/<?php echo $novedad->id?>" class="btn3 ventanaver"><img src="<?php echo BASE_URL; ?>public/img/editar.png" style="vertical-align:middle"/> VER</a>
+
+                                    <a href="javascript:borrar_novedad(<?php echo $novedad->id;?>)" class="btn4"><img src="<?php echo BASE_URL; ?>public/img/remover_todos.png" style="vertical-align:middle"/> Eliminar</a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                        <tr>
+                            <td colspan="5">
+                                <div class="clear"></div>
+                                <?php if (isset($this->paginacion)) echo $this->paginacion; ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <div class='alert alert-info'>
+                    <strong>No hay novedades creadas.</strong>
+                </div>
+            <?php endif; ?>
