@@ -11,31 +11,42 @@ class recursosModel extends Model {
 
     public function getBanners() {
         //Se crea y ejecuta la consulta
-            $consulta = $this->_db->get_results("SELECT * FROM roles WHERE 1;");
+            $consulta = $this->_db->get_results("SELECT * FROM banners WHERE 1;");
         //Se retorna la consulta y se recorren los registros
         return $consulta;
     }
 
     public function getbanner($id) {
         //Se crea y ejecuta la consulta
-            $consulta = $this->_db->get_row("SELECT * FROM roles WHERE id = $id;");
+            $consulta = $this->_db->get_row("SELECT * FROM banners WHERE id = $id;");
         //Se retorna la consulta y se recorren los registros
         return $consulta;
     }
 
-    public function nuevo_banner($rol) {
+    public function nuevo_banner($nombre , $tipo, $apertura, $url) {
 
-        $this->_db->query("INSERT INTO roles (rol) VALUES ('".$rol."');");
+        $this->_db->query("INSERT INTO banners (nombre, url, tipo_apertura, tipo) 
+            VALUES ('".$nombre."' , '".$url."', '".$apertura."' , ".$tipo.");");
     }
 
-    public function editar_banner($id, $rol) {
+    public function editar_banner($id, $nombre , $tipo, $apertura, $url, $estado) {
 
-        $this->_db->query("UPDATE roles SET rol='".$rol."' WHERE id = $id;");
+        $this->_db->query("UPDATE banners SET nombre='".$nombre."',
+                                            url = '".$url."',
+                                            tipo_apertura = '".$apertura."',
+                                            tipo = ".$tipo.",
+                                            estado = $estado
+                                            WHERE id = $id;");
     }
 
     public function eliminar_banner($id) {
         $id = (int) $id; /* Parse de la variable */
-        $this->_db->query("Delete FROM roles Where id = $id;");
+        $this->_db->query("Delete FROM banners Where id = $id;");
+    }
+
+    public function foto_banner($id, $nombre, $ext) {
+
+        $this->_db->query("UPDATE banners SET archivo='".$nombre."', ext='".$ext."' WHERE id = $id;");
     }
 
 }
