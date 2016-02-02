@@ -4,23 +4,14 @@
      <title>titulo</title>
      <meta charset="utf-8">
      <meta name = "format-detection" content = "telephone=no" />
-<!--*******************************ETIQUETAS DE LA ANTIGUA PAGINA********************************-->
-<meta name="country" content="COLOMBIA">
-<meta name="language" content="spanish">
-<meta name="coverage" content="Worldwide">
-<meta name="creation_date" content="MAY 2009">
-<META NAME="RATING" CONTENT="General">
-<META NAME="ROBOTS" CONTENT="index, default">
-<meta name="distribution" content="global">
-<meta name="revisit-after" content="2 days">    
-<!--********************************************************************************************-->     
-
      
      <link rel="icon" href="images/favicon.ico">
      <link rel = "shortcut icon" type = "image/png" href = "<?php echo BASE_URL; ?>public/img/favicon.ico" />
      
+     <?php if (Session::Get('modulo') =="admin"){ ?>
      <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/style.css">
      <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>public/css/EstilosPagina.css" >
+     <?php } ?>
 
      <script src="<?php echo BASE_URL; ?>public/js/jquery.js"></script>
      <script src="<?php echo BASE_URL; ?>public/js/jquery_migrate.js"></script>
@@ -68,64 +59,287 @@
     
 <!--********************************************************************************************-->     
    
+ <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home 2 | Hope</title>
+        <meta name="description" content="">
+    <!-- Mobile specific metas --> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,600italic,300italic,700' rel='stylesheet' type='text/css'>
+    <!-- Favicon -->
+        <link rel="shortcut icon" type="<?php echo BASE_URL; ?>public/image/x-icon" href="img/favicon.ico">
+    <!-- font awesome -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/font-awesome.min.css">
+    <!-- carousel CSS -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/owl.carousel.css">
+    <!-- carousel Theme CSS -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/owl.my_theme.css">
+    <!-- carousel transitions CSS -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/owl.transitions.css">
+    <!-- nivo slider slider css -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/nivo-slider.css">
+    <!-- animate css -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/animate.css">
+    <!-- Price jquery-ui  -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/jquery-ui.css">
+    <!-- fancy-box theme -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/fancy-box/jquery.fancybox.css">
+    <!-- normalizer -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/normalize.css">
+    <!-- bootstrap -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/bootstrap.min.css">
+    <!-- Mobile menu css -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/meanmenu.min.css">
+    <!-- main -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/main.css">
+    <!-- style -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/style.css">
+    <!-- Responsive css -->
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/responsive.css">
+    <!-- modernizr JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/vendor/modernizr-2.8.3.min.js"></script>  
     
  </head>
- <body class="page1" id="top" style="background-color:#3e3e9e" >
- <div class="main_color">
+ <body >
+
 								    
-<!--==============================HEADER=================================--> 
-<div style="width:100%;background-color:#3e3e9e; padding-top:5px; padding-bottom:5px; ">
-<div class="container_12" style="width:100%;background-color:#3e3e9e">
 
-  <!--
-  <div class="grid_07" style="padding-left:10px;margin-bottom:5px;">
-  <a href="<?php echo BASE_URL; ?>micuenta/micuenta" title="Mi Perfil">  
-    <img src="<?php echo BASE_URL?>public/img/usuariosinfoto.png" border="0"  style="width:100%" class="img-circle" />
-  </a>  
-  </div>-->
-
-  <div class="grid_03" style="margin-bottom:5px;">
+  <!--<div class="grid_03" style="margin-bottom:5px;">
       <a href="<?php echo BASE_URL; ?>principal">
         <img src="<?php echo BASE_URL; ?>public/img/logo-SCIOCCO.png" alt="SCIOCCO">
       </a>
-  </div>
+  </div>-->
 
   <?php if (Session::Get('modulo') == "prin"){ ?>
 
-  <div class="grid_06" style="margin-bottom:2px;">
-
-    <div class="grid_04" style="margin-top:2px;margin-bottom:2px;">
-      <a href="<?php echo BASE_URL; ?>login/login" style="color:#FFF; font-weight:bold" title="Iniciar Sesi&oacute;n">
-      <img src="<?php echo BASE_URL; ?>public/img/iniciar_sesion.png">
-      </a>
-    </div>
-
-    <div class="grid_04" style="margin-top:2px;margin-bottom:2px;">
-      <a href="<?php echo BASE_URL; ?>login/cerrar" style="color:#FFF; font-weight:bold" title="Cerrar Sesi&oacute;n">
-      <img src="<?php echo BASE_URL; ?>public/img/cerrar_sesion.png">
-      </a>
-    </div>
-  
-    <div class="grid_04" style="margin-top:2px;margin-bottom:2px;">
-      <a href="<?php echo BASE_URL; ?>micuenta/micuenta" style="color:#FFF; font-weight:bold" title="Mi Perfil">
-      <img src="<?php echo BASE_URL; ?>public/img/mi_cuenta.png">
-      </a> 
-    </div>
-    
-    
-    	
-    <div class="grid_09" style="margin-top:2px;margin-bottom:2px;">
-      <a class="btn1" href="<?php echo BASE_URL; ?>micuenta/ListadoCarrito" style="color:#06C; font-weight:bold; background:#FFF;width:102px;" title="Comprar Más">
-      <img src="<?php echo BASE_URL; ?>public/img/icono-carrito.png"> Carrito <span>()</span>
-      </a>
-  	</div>
-    
-    <div class="grid_09" style="margin-top:2px;margin-bottom:2px;">
-      <a class="btn1" href="<?php echo BASE_URL; ?>compras" style="color:#06C; font-weight:bold; background:#FFF;width:102px;" title="Comprar Más">
-      <img src="<?php echo BASE_URL; ?>public/img/comprar_mas.png"> Comprar Más <span></span>
-      </a>
-  	</div>     
-	</div>  
+  <div class="home2_header_top_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <!--Start logo area -->
+            <div class="logo logo_border"> 
+              <a href="<?php echo BASE_URL; ?>/principal">
+                <img src="<?php echo BASE_URL; ?>public/img/logo/logo-home-2.png" alt="" />
+              </a>
+            </div>
+            <!--End logo area -->
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="home2_contact_info">
+              <div class="contact_info_text">
+                <p>CONTACTENOS: (57) 732-253-8714</p>
+              </div>
+              <!--Start Account area -->
+              <div class="account_card_area account_cart_home2"> 
+                <ul id="account_nav">
+                  <li><a class="list_cl" href="#"><i class="fa fa-key"></i>CUENTA</a>
+                    <div class="account_menu_list">
+                      <div class="account_single_item">
+                        <h2>REGISTRATE</h2>
+                        <ul id="account_single_nav_1">
+                          <li><a href="#">REGISTRO</a></li>
+                        </ul>
+                      </div>
+                      <div class="account_single_item">
+                        <h2>INICIAR SESION</h2>
+                        <ul id="account_single_nav_2">
+                          <li><a href="#">LOGIN</a></li>
+                        </ul>
+                      </div>
+                      <div class="account_single_item">
+                        <h2>MI CUENTA</h2>
+                        <ul id="account_single_nav_3">
+                          <li><a href="my-account.html">MI CUENTA</a></li>
+                          <li><a href="#">MIS DESEOS</a></li>
+                          <li><a href="#">MI CARRITO</a></li>
+                          <li><a href="#">PEDIDOS</a></li>                          
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li><a class="list_cl" href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito <span class="cart_zero cart_zero1">2</span></a>
+                    <div class="cart_down_area">
+                      <div class="cart_single">
+                        <a href="#"><img src="<?php echo BASE_URL; ?>public/img/cart/cart-1.jpg" alt="" /></a>
+                        <h2><a href="#">Pellentesque hendrerit</a> <a href="#"><span><i class="fa fa-trash"></i></span></a></h2>
+                        <p>1 x $222.00</p>
+                      </div>
+                      <div class="cart_single">
+                        <a href="#"><img src="<?php echo BASE_URL; ?>public/img/cart/cart-2.jpg" alt="" /></a>
+                        <h2><a href="#">Pellentesque hendrerit</a> <a href="#"><span><i class="fa fa-trash"></i></span></a></h2>
+                        <p>1 x $222.00</p>
+                      </div>
+                      <div class="cart_shoptings">
+                        <a href="checkout.html">PEDIDO</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div> 
+              <!--End Account area -->
+            </div>
+            <div class="row">
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <!--Start Main menu area -->
+                <div class="main_menu main_menu_tb">
+                  <ul id="nav_menu" class="active_cl nav_manu_lf">
+                    <li><a class="home2_size" href="<?php echo BASE_URL; ?>/principal"><span class="Home">Home</span></a>
+                    </li>
+                    <li><a class="home2_size" href="<?php echo BASE_URL; ?>/principal/sciocco"><span class="Home">SCIOCCO</span></a>
+                      <div class="home_mega_menu menu_home2_looktr">
+                        <a href="about-us.html">MISION</a>
+                        <a href="contact.html">VISION</a>
+                        <a href="cart.html">HISTORIA</a>
+                      </div>
+                    </li>
+                    <li><a class="home2_size" href="shop.html"><span class="Sales">CATALOGO</span></a>
+                    </li>
+                    <!--<li><a class="home2_size" href="shop.html"><span class="Clothings">Tienda</span></a>
+                      <div class="mega_menu_list menu_home2_list">
+                        <div class="single_megamenu">
+                          <h2><a href="shop.html">Learning</a></h2>
+                          <div class="items_list">
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Devenport</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Door Bazar</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Digital Software</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Dental Care</a>
+                          </div>
+                        </div>
+                        <div class="single_megamenu">
+                          <h2><a href="shop.html">Lighting</a></h2>
+                          <div class="items_list">
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Devenport</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Door Bazar</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Digital Software</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Dental Care</a>
+                          </div>
+                        </div>
+                        <div class="single_megamenu">
+                          <h2><a href="shop.html">Living Room</a></h2>
+                          <div class="items_list">
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Devenport</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Door Bazar</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Digital Software</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Dental Care</a>
+                          </div>
+                        </div>
+                        <div class="single_megamenu">
+                          <h2><a href="shop.html">Lamp</a></h2>
+                          <div class="items_list">
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Devenport</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Door Bazar</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Digital Software</a>
+                            <a href="shop.html"><i class="fa fa-angle-right"></i>Dental Care</a>
+                          </div>
+                        </div>
+                      </div>
+                    </li>-->
+                    <li><a class="home2_size" href="shop.html"><span class="Lookbook">NOVEDADES</span></a>
+                      <div class="home_mega_menu menu_home2_looktr">
+                        <a href="about-us.html">Tiendas</a>
+                        <a href="contact.html">Colecciones</a>
+                      </div>
+                    </li>
+                    <!--<li><a class="home2_size" href="blog.html"><span class="Footwear">Blog</span></a>
+                      <div class="home_mega_menu menu_home2_looktr">
+                        <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
+                        <a href="blog-right-sidebar.html">Blog Right Sidebar </a>
+                        <a href="single-blog.html">Single Blog </a>
+                      </div>
+                    </li>-->
+                    
+                    <li><a class="home2_size" href="shop.html"><span class="Accessaries">CONTACTENOS</span></a>
+                      
+                    </li>
+                  </ul>
+                </div>
+                <!--End Main menu area -->
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <!--Start Search area -->
+                <div class="search_box_hopme2">
+                  <form action="#" name="myForm">
+                    <div class="search_box seach_box_home2_area">
+                      <input name="Name" id="itp" class="input_text" type="text" value="Search"/>
+                      <button type="submit" class="btn-search">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                  </form> 
+                </div>
+                <!--End Search area -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--start Mobile Menu area -->
+      <div class="mobile-menu-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <div class="mobile-menu">
+                <nav id="dropdown">
+                  <ul>
+                    <li><a href="<?php echo BASE_URL; ?>/principal">Home</a>
+                    </li>
+                    <li><a href="<?php echo BASE_URL; ?>/principal/sciocco">SCIOCCO</a>
+                      <ul>                    
+                        <li><a href="shop.html">MISION</a></li>
+                        <li><a href="shop.html">VISION</a></li>
+                        <li><a href="shop.html">HISTORIA</a></li>
+                      </ul>  
+                    </li>
+                    <!--<li><a href="shop.html">TIENDA</a>
+                      <ul>                    
+                        <li><a href="shop.html">Learning</a>
+                          <ul>                    
+                            <li><a href="shop.html">Devenport</a></li>
+                            <li><a href="shop.html">Door Bazar</a></li>
+                            <li><a href="shop.html">Digital Software</a></li>
+                            <li><a href="shop.html">Dental Care</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="shop.html">Lighting</a>
+                          <ul>                    
+                            <li><a href="shop.html">Devenport</a></li>
+                            <li><a href="shop.html">Door Bazar</a></li>
+                            <li><a href="shop.html">Digital Software</a></li>
+                            <li><a href="shop.html">Dental Care</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="shop.html">Living Room</a></li>
+                        <li><a href="shop.html">Lamp</a></li>
+                      </ul>
+                    </li>-->
+                    <li><a href="shop.html">CATALOGO</a>
+                    </li>
+                    <li><a href="blog.html">NOVEDADES</a>
+                      <ul>
+                        <li><a href="single-blog.html">TIENDAS</a></li>
+                        <li><a href="single-blog.html">COLECCIONES</a></li>
+                      </ul>
+                    </li>
+                    <!--<li><a href="shop.html">Shop</a>
+                      <ul>                    
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="product.html">Product</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="my-account.html">My Account</a></li>
+                      </ul>
+                    </li>-->
+                    <li><a href="about-us.html">CONTACTENOS</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>          
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End Mobile Menu area -->
+    </div>  
 
   <!--
   <div class="grid_08" style="padding-left:10px;">
@@ -143,13 +357,7 @@
         </div>
       <?php } ?> 
     <?php } ?>     
-
-
-</div>
-
-<br>
-
-</div>          
+         
 
 <!--==============================MENU DE NAVEGACION=================================--> 
 <style type="text/css">
@@ -171,30 +379,135 @@
 
 
 <!--==============================CONTENIDO=================================--> 
-  <div class="container_12" class="main_color">
-    <div class="grid_12" align="center" class="main_color">
+  <div class="" class="main_color">
+    <div class="" align="center" class="main_color">
       <div style="min-height:490px;" class="main_color">
         <?php include $this->_contenido; ?>
       </div>
     </div>                
   </div>
-</div> 
 
 <!--==============================FOOTER=================================-->
-
-<footer>   
-  <div class="container_12" >   
-    <div class="grid_12" align="right">
-		  <a target="_blank" href="" style="text-align: right;">
-        Desarrollado por <font Title="Desarrollado por DEEPCODE" 
-        alt="Desarrollado por DEEPCODE"  >DEEPCODE</font>
-      <!-- <img style="margin-top: 4px;" border="0" 
-      src="<?php echo BASE_URL; ?>public/img/logo-deepcode.png"  />-->
-      </a>	
-    </div> 
-  </div>  
-</footer>
-
+<?php if (Session::Get('modulo') == "prin"){ ?>
+<div class="footer_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="feature_text feature_newsletter">
+              <h4>Newsletter</h4>
+              <p>Obtenga nuestras novedades y ofertas especiales</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="sign_up">
+              <form action="#">
+                <input class="sign_text" type="text" placeholder="ingresa tu email" />
+                <button type="submit" class="sign">
+                  <span>enviar</span>
+                  <img src="<?php echo BASE_URL; ?>public/img/arrow/bkg_newsletter-1.png" alt="" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer_menu_area">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <div class="help_support">
+                <h2>REDES SOCIALES</h2>
+                <ul class="footer_menu">
+                  <li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Like 6k" class="red-tooltip" href="#">FACEBOOK <i class="fa fa-facebook"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Followers 16k" class="red-tooltip" href="#">INSTAGRAM <i class="fa fa-instagram"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Followers 61k" class="red-tooltip" href="#">TWITTER <i class="fa fa-twitter"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Followers 10k" class="red-tooltip" href="#">PINTEREST <i class="fa fa-pinterest"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="" data-original-title="Followers 10k" class="red-tooltip" href="#">YOUTUBE <i class="fa fa-youtube"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <div class="help_support help_border">
+                <h2>MI CUENTA</h2>
+                <ul class="footer_menu">
+                  <li><a href="#">MI CUENTA</a></li>
+                  <li><a href="#">LOGIN</a></li>
+                  <li><a href="#">MI CARRITO</a></li>
+                  <li><a href="#">MIS DESEOS</a></li>
+                  <li><a href="#">PEDIDOS</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <div class="help_support help_border">
+                <h2>TERMINOS Y CONDICIONES</h2>
+                <ul class="footer_menu">
+                  <li><a href="#">TERMINOS Y CONDICIONES</a></li>
+                  <li><a href="#">COMPRAS Y DESPACHOS</a></li>
+                  <li><a href="#">PROTECCION DE DATOS</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <div class="help_support help_border">
+                <h2>SCIOCCO</h2>
+                <p>DIRECCION: <span>CLLE 61N 3BBIS-65</span></p>
+                <p>TELEFONO: <span>(+1)866-540-3229</span></p>
+                <p>EMAIL: <span>admin@bootexperts.com</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer_bottom_area">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="copy_visa">
+                <div class="copy_right">
+                  <h2>Copyright © 2015 <a href="http://themeforest.net/user/bootexperts/portfolio">DEEPCODE</a>. DERECHOS RESERVADOS.</h2>
+                </div>
+                <div class="visa_card">
+                  <img src="<?php echo BASE_URL; ?>public/img/payment/payment.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Footer area -->
+    <!-- jquery JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- fancybox JS -->
+        <script src="<?php echo BASE_URL; ?>public/fancy-box/jquery.fancybox.pack.js"></script>
+    <!-- price slider JS  -->
+        <script src="<?php echo BASE_URL; ?>public/js/price-slider.js"></script>
+    <!-- Mobile menu JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/jquery.meanmenu.js"></script>
+    <!-- nivo slider JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/jquery.nivo.slider.pack.js"></script>
+    <!-- wow JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/wow.js"></script>
+    <!-- nivo-plugin JS -->
+    <script src="<?php echo BASE_URL; ?>public/js/nivo-plugin.js"></script>
+    <!-- scrollUp JS -->
+    <script src="<?php echo BASE_URL; ?>public/js/jquery.scrollUp.js"></script>
+    <!-- carousel JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/owl.carousel.min.js"></script>
+    <!-- bootstrap JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js"></script>
+    <!-- plugins JS -->
+        <script src="<?php echo BASE_URL; ?>public/js/plugins.js"></script>
+    <!-- main JS  -->
+        <script src="<?php echo BASE_URL; ?>public/js/main.js"></script>
+<?php }elseif (Session::Get('modulo') =="admin"){ ?>
+      <?php if (Session::Get('autenticado_adminsciocco') == true ){ ?>
+        <div class="grid_04" style="margin-top:2px;margin-bottom:2px;">
+          <a href="<?php echo BASE_URL; ?>login/cerrar" style="color:#FFF; font-weight:bold" title="Cerrar Sesi&oacute;n">
+          <img src="<?php echo BASE_URL; ?>public/img/cerrar_sesion.png">
+          </a>
+        </div>
+      <?php } ?> 
+    <?php } ?> 
   
         <script type="text/javascript">
             var _ruta_ = '<?php echo BASE_URL; ?>';

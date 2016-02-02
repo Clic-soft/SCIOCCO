@@ -27,7 +27,7 @@ class principalController extends Controller {
 
 	
 	//SEGUNDO INDEX PRINCIPAL
-	public function principal() {
+	public function sciocco() {
         //Si el usuario esta autenticado
       
         //Titulo de la página
@@ -35,7 +35,7 @@ class principalController extends Controller {
 		$this->_view->navegacion = 'inicio';
 		
         //Vista de la pagina actual
-        $this->_view->renderizar('index_2', "principal");
+        $this->_view->renderizar('sciocco', "principal");
     }
 
 	
