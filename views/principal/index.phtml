@@ -67,20 +67,20 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="shopping_world">
-							<p>Nuestras marcas.</p>
+							<p>MARCAS DE NUESTRAS TIENDAS.</p>
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<!--<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="home2_banner_single">
 							<div class="home2_banner_one">
 								<a href="#">
-									<img src="<?php echo BASE_URL; ?>public/img/banner/banner-1.jpg" alt="banner" />
+									<img src="<?php echo BASE_URL; ?>public/img/banner/banner-2.jpg" alt="banner" />
 								</a>
 							</div>
 							<div class="home2_banner_text">
-								<h4>leather bags</h4>
+								<h4>men's watch</h4>
 								<h3>-35% sale off</h3>
 							</div>
 						</div>
@@ -111,7 +111,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</div>
 		<!--End home-2 banner area -->
@@ -122,9 +122,17 @@
 					<div class="row">
 						<div class="carousel_branding">
 							<div class="col-lg-2">
-								<div class="single_branding">
-									<a href="#"><img src="<?php echo BASE_URL; ?>public/img/branding-image/brand1.jpg" alt="" /></a>
-								</div>
+								<?php if (isset($this->imgmarcas) && count($this->imgmarcas)) : ?>
+									<?php foreach($this->imgmarcas as $imgmarcas):?>
+									<div class="single_branding">
+										<?php if (file_exists("views/marcas/fotos/".$imgmarcas->archivo.".jpg")): ?>
+												<a href="#">
+													<img src='<?php echo BASE_URL . "views/marcas/fotos/".$imgmarcas->archivo?>.jpg?nocache= <?php echo date("Y-m-d H:i:s")?>' alt="banner" />
+												</a>
+										<?php endif; ?>
+									</div>
+					        		<?php endforeach;?>
+					        	<?php endif; ?>
 							</div>
 							<div class="col-lg-2">
 								<div class="single_branding">
@@ -186,7 +194,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<div class="product_list">
 							<div class="single_product">
-								<a href="product.html" target="main"><img src="<?php echo BASE_URL; ?>public/img/feature-image/1.jpg" alt="" /></a>
+								<a href="product.html" target="main"><img src="<?php echo BASE_URL; ?>public/img/9044 espalda DSC_0060 copia.jpg" alt="" /></a>
 								<div class="product_details">
 									<h2>Lorem ipsum dolor</h2>
 									<p><span class="regular_price">$170.00</span> <span class="popular_price">$150.00</span></p>
@@ -633,96 +641,30 @@
 				</div>
 				<div class="row">
 					<div class="carousel_blog_list">
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="<?php echo BASE_URL; ?>public/img/blog-post-image/cl-1.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">William Eto</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
+						<?php if (isset($this->novedades) && count($this->novedades)) : ?>
+							<?php foreach($this->novedades as $novedades):?>
+							<div class="col-lg-3">
+
+								<?php if (file_exists("views/novedades/fotos/".$novedades->archivo.".jpg")): ?>
+										<div class="single_blog">
+											<a href="#">
+												<img src='<?php echo BASE_URL . "views/novedades/fotos/".$novedades->archivo?>.jpg?nocache= <?php echo date("Y-m-d H:i:s")?>' alt="banner" />
+											</a>
+											<div class="blog_details">
+												<a href="#"><?php echo $novedades->nombre;?></a>
+												<p><?php echo $novedades->tnov;?></p>
+												<h3><?php echo date('d-m-Y',strtotime($novedades->fecha_creacion));?></h3>
+												<a href="#">
+												<div class="read_more">
+													<i class="fa fa-angle-right"></i>
+												</div>
+												</a>
+											</div>
+										</div>
+								<?php endif; ?>
 							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="<?php echo BASE_URL; ?>public/img/blog-post-image/cl-2.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">William Eto</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="<?php echo BASE_URL; ?>public/img/blog-post-image/cl-3.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">William Eto</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="<?php echo BASE_URL; ?>public/img/blog-post-image/cl-4.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">William Eto</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="<?php echo BASE_URL; ?>public/img/blog-post-image/cl-3.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">William Eto</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="<?php echo BASE_URL; ?>public/img/blog-post-image/cl-1.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">William Eto</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
+			        		<?php endforeach;?>
+			        	<?php endif; ?>
 					</div>
 				</div>
 			</div>

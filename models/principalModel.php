@@ -27,6 +27,29 @@ class principalModel extends Model {
 								".$fk_link."
 							);");
     }	*/	 		
+
+    public function getimgmarcas() {
+        //Se crea y ejecuta la consulta
+            $consulta = $this->_db->get_results("SELECT * FROM marca");
+        //Se retorna la consulta y se recorren los registros
+        return $consulta;
+    }
+
+    public function getnovedades() {
+        //Se crea y ejecuta la consulta
+            $consulta = $this->_db->get_results("SELECT n.*,tn.nombre as tnov 
+            									FROM novedades as n, tipo_novedad as tn
+            									WHERE n.id_tipo_novedad=tn.id");
+        //Se retorna la consulta y se recorren los registros
+        return $consulta;
+    }
+
+    public function getqsomos($id) {
+        //Se crea y ejecuta la consulta
+            $consulta = $this->_db->get_row("SELECT * FROM info_empresa where id=$id");
+        //Se retorna la consulta y se recorren los registros
+        return $consulta;
+    }
 }
 
 ?>

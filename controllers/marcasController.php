@@ -227,8 +227,8 @@ class marcasController extends Controller {
 					$upload->image_resize = true;
 					//Crop de la imagen
 					$upload->image_ratio = true;
-					$upload->image_x = 400;
-					$upload->image_y = 225;
+					$upload->image_x = 360;
+					$upload->image_y = 163;
 					/* Se llama metodo para indicar ruta donde se guarda el archivo */
 					$upload->process($ruta);
 	
@@ -250,8 +250,8 @@ class marcasController extends Controller {
 						$upload->image_resize = true;
 						//Crop de la imagen
 						$upload->image_ratio = false;
-						$upload->image_x = 200;
-						$upload->image_y = 187;
+						$upload->image_x = 140;
+						$upload->image_y = 65;
 						$upload->process($ruta1);
 
 						$this->_marcas->foto_marca($this->filtrarInt($id),	$nombre, "jpg");				

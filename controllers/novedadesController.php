@@ -239,8 +239,8 @@ class novedadesController extends Controller {
 						$upload->image_resize = true;
 						//Crop de la imagen
 						$upload->image_ratio = false;
-						$upload->image_x = 200;
-						$upload->image_y = 187;
+						$upload->image_x = 193;
+						$upload->image_y = 167;
 						$upload->process($ruta1);
 
 						$this->_novedades->foto_novedad($this->filtrarInt($id),	$nombre, "jpg");				
