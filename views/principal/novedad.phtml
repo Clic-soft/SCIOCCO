@@ -1,0 +1,175 @@
+		<!--Start single blog area -->
+		<div class="blog_post_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+						<div class="breadcrumb-single blog_top_area">
+							<ul id="breadcrumbs">
+								<li><a href=""><i class="fa fa-home"></i>Home</a></li>
+								<li><span>Ι</span></li>
+								<li>Novedades</li>
+								<li><span>Ι</span></li>
+								<li><?php echo $this->novedad->nombre;?></li>
+							</ul>
+						</div>
+						<div class="blog_list_area">
+							<div class="single_blog_area">
+								<?php if (file_exists("views/novedades/fotos/grande/".$this->novedad->archivo.".jpg")): ?>
+								<img src='<?php echo BASE_URL . "views/novedades/fotos/grande/".$this->novedad->archivo?>.jpg?nocache= <?php echo date("Y-m-d H:i:s")?>' alt="" />
+								<?php endif; ?>
+							</div>
+						</div>
+						<div class="blog_details_area">
+							<i class="fa fa-picture-o"></i>
+							<div class="blog_details_list">
+								<ul class="blog_author">
+									<li><i class="fa fa-folder-open-o"></i> <a href="">NOVEDADES</a></li>
+									<li><i class="fa fa-user"></i> Super User</li>
+									<li><i class="fa fa-eye"></i> Hits: 256</li>
+									<li>
+										<div class="star_blog">
+											Rating: 
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star-o"></i>
+											<i class="fa fa-star-o"></i>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="blog_info_details">
+								 <h2><a class="blog_info_heading" href="#"><?php echo $this->novedad->nombre;?></a></h2>
+								 <?php echo $this->novedad->descripcion;?>
+							</div>
+						</div>
+						<div class="blog_social_icon">
+							<img src="<?php echo BASE_URL; ?>public/img/social/shareicon.png" alt="" />
+						</div>
+						<div class="blog_add_comment_area">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="comment_text">
+										<h2>Add comment</h2>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="comment_name">
+										<input type="text" placeholder="Name">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="comment_email">
+										<input type="text" placeholder="E-mail">
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="comment_title">
+										<input type="text" placeholder="Title">
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="comment_textarea">
+										<textarea cols="65" rows="8"></textarea>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="chapcha">
+										<img src="<?php echo BASE_URL; ?>public/img/social/capcha.jpg" alt="" />
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="chapcha_type">
+										<input type="text">
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="send_button">
+										<input type="submit" value="Send">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="blog_right_sidebar">
+                           <h2 class="sp_module_title"><span>Newsletter</span></h2>
+                           <div class="sub_area">
+                               <form action="#">
+                                   <input type="text" placeholder="E-mail">
+                                   <input type="submit" value="Subscribe">
+                               </form>
+                           </div>
+                           <div class="latest_posts">
+                               <h3 class="sp_module_title sp_module_title_rv"><span>Ultimas Novedades</span></h3>
+                               <?php if (isset($this->novedades) && count($this->novedades)) : ?>
+									<?php foreach($this->novedades as $novedades):?>
+									<div class="single_l_post">
+										<a href="<?php echo BASE_URL; ?>principal/novedad/<?php echo $novedades->id;?>"><?php echo $novedades->nombre;?></a>
+										<p><?php echo date('d-m-Y',strtotime($novedades->fecha_creacion));?></p>
+									</div>
+					        		<?php endforeach;?>
+					        	<?php endif; ?>  
+                           </div>
+                          <div class="add_r_sidebar">
+                              <p class="banner_block"><a href="#"><img alt="" src="<?php echo BASE_URL; ?>public/img/banner/3.jpg"></a></p>
+                          </div>
+                       </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End single blog area -->
+		<!--Start Footer Banner area -->
+		<div class="blog_banner_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="single_banner">
+							<div class="banner_home_inner">
+								<a href="#">
+									<img alt="" src="<?php echo BASE_URL; ?>public/img/banner/2.jpg">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Start Footer Banner area -->
+		<!--Start Branding area -->
+		<div class="branding_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="carousel_branding">
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand1.jpg" alt="" />
+							</div>
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand2.jpg" alt="" />
+							</div>
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand3.jpg" alt="" />
+							</div>
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand4.jpg" alt="" />
+							</div>
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand2.jpg" alt="" />
+							</div>
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand1.jpg" alt="" />
+							</div>
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand3.jpg" alt="" />
+							</div>
+							<div class="single_branding">
+								<img src="<?php echo BASE_URL; ?>public/img/branding-image/brand2.jpg" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End Branding area -->

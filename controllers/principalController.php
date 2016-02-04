@@ -92,6 +92,37 @@ class principalController extends Controller {
         $this->_view->renderizar('sciocco', "principal");
     }
 
+    public function novedades() {
+        //Si el usuario esta autenticado
+      
+        //Titulo de la página
+        Session::set('modulo', "prin");
+        $this->_view->titulo = 'Novedades';
+        $this->_view->navegacion = 'Novedades';
+
+        $this->_view->imgmarcas = $this->_principal->getimgmarcas();
+        $this->_view->novedades = $this->_principal->getnovedades();
+        
+        //Vista de la pagina actual
+        $this->_view->renderizar('novedades', "principal");
+    }
+
+    public function novedad($id) {
+        //Si el usuario esta autenticado
+      
+        //Titulo de la página
+        Session::set('modulo', "prin");
+        $this->_view->titulo = 'Novedades';
+        $this->_view->navegacion = 'Novedades';
+
+        $this->_view->imgmarcas = $this->_principal->getimgmarcas();
+        $this->_view->novedades = $this->_principal->getnovedades();
+        $this->_view->novedad = $this->_principal->getnovedad($this->filtrarInt($id));
+        
+        //Vista de la pagina actual
+        $this->_view->renderizar('novedad', "principal");
+    }
+
 	
 	//CCONTADOR DE CLICS
 	public function Contador_Clics() {

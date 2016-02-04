@@ -1,0 +1,136 @@
+		<div class="breadcrumbs-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="breadcrumb-single blog_top_area">
+              <ul id="breadcrumbs">
+                <li><a href=""><i class="fa fa-home"></i>Home</a></li>
+                <li><span>Ι</span></li>
+                <li>Novedades</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+		<!--Start Lateast Collection Top area -->
+		<div class="body_top_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="single_image">
+							<a href="#"><img class="banner_home1" src="<?php echo BASE_URL; ?>public/img/tienda_novedad.jpg" alt="" /></a>
+							<div class="banner_text">
+								<h2><a href="#">NOVEDADES TIENDAS</a></h2>
+							</div>
+							<div class="shop_collection">
+								<a href="#">VER NOVEDADES <span><img src="<?php echo BASE_URL; ?>public/img/arrow/bkg_newsletter.png" alt="" /></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="single_image">
+							<a href="#"><img class="banner_home1" src="<?php echo BASE_URL; ?>public/img/tienda_novedad.jpg" alt="" /></a>
+							<div class="banner_text">
+								<h2><a href="#">NOVEDADES COLECCIONES</a></h2>
+							</div>
+							<div class="shop_collection">
+								<a href="#">VER NOVEDADES <span><img src="<?php echo BASE_URL; ?>public/img/arrow/bkg_newsletter.png" alt="" /></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End Lateast Collection Top area -->
+		<!--Start Blog area -->
+		<div class="blog_post_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="feature_text">
+							<h4>NOVEDADES RECIENTES</h4>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="carousel_blog_list">
+						<?php if (isset($this->novedades) && count($this->novedades)) : ?>
+							<?php foreach($this->novedades as $novedades):?>
+							<div class="col-lg-3">
+
+								<?php if (file_exists("views/novedades/fotos/".$novedades->archivo.".jpg")): ?>
+										<div class="single_blog">
+											<a href="<?php echo BASE_URL; ?>principal/novedad/<?php echo $novedades->id;?>">
+												<img src='<?php echo BASE_URL . "views/novedades/fotos/".$novedades->archivo?>.jpg?nocache= <?php echo date("Y-m-d H:i:s")?>' alt="banner" />
+											</a>
+											<div class="blog_details">
+												<a href="<?php echo BASE_URL; ?>principal/novedad/<?php echo $novedades->id;?>"><?php echo $novedades->nombre;?></a>
+												<p><?php echo $novedades->tnov;?></p>
+												<h3><?php echo date('d-m-Y',strtotime($novedades->fecha_creacion));?></h3>
+												<a href="<?php echo BASE_URL; ?>principal/novedad/<?php echo $novedades->id;?>">
+												<div class="read_more">
+													<i class="fa fa-angle-right"></i>
+												</div>
+												</a>
+											</div>
+										</div>
+								<?php endif; ?>
+							</div>
+			        		<?php endforeach;?>
+			        	<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End blog area -->
+		<!--Start Contact info area -->
+		<div class="service_info_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<div class="service_list">
+							<h2><i class="fa fa-envelope-o"></i> info@liendobingo.com</h2>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<div class="service_list">
+							<h3><i class="fa fa-phone"></i> (+5555) 224 434</h3>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<div class="Social_list">
+							<h2>Connect us: </h2>
+							<div class="social_icon my-class uk-scrollspy-init-inview uk-invisible">
+								<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Like 6k" class="red-tooltip" href="#"><i class="fa fa-facebook"></i></a>
+								<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Followers 61k" class="red-tooltip" href="#"><i class="fa fa-twitter"></i></a>
+								<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Followers 16k" class="red-tooltip" href="#"><i class="fa fa-linkedin"></i></a>
+								<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Followers 10k" class="red-tooltip" href="#"><i class="fa fa-pinterest"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End Contact info area -->
+		<!--Start Branding area -->
+		<div class="branding_area">
+			<div class="container">
+				<div class="row">
+					<div class="carousel_branding">
+						<?php if (isset($this->imgmarcas) && count($this->imgmarcas)) : ?>
+							<?php foreach($this->imgmarcas as $imgmarcas):?>
+								<div class="col-lg-2">
+									<?php if (file_exists("views/marcas/fotos/".$imgmarcas->archivo.".jpg")): ?>
+										<div class="single_branding">								<a href="#">
+												<img src='<?php echo BASE_URL . "views/marcas/fotos/".$imgmarcas->archivo?>.jpg?nocache= <?php echo date("Y-m-d H:i:s")?>' alt="banner" />
+											</a>
+										</div>
+									<?php endif; ?>	
+								</div>
+							<?php endforeach;?>
+					    <?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>

@@ -71,50 +71,6 @@
 						</div>
 					</div>
 				</div>
-				<!--<div class="row">
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-						<div class="home2_banner_single">
-							<div class="home2_banner_one">
-								<a href="#">
-									<img src="<?php echo BASE_URL; ?>public/img/banner/banner-2.jpg" alt="banner" />
-								</a>
-							</div>
-							<div class="home2_banner_text">
-								<h4>men's watch</h4>
-								<h3>-35% sale off</h3>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-						<div class="home2_banner_single">
-							<div class="home2_banner_one">
-								<a href="#">
-									<img src="<?php echo BASE_URL; ?>public/img/banner/banner-2.jpg" alt="banner" />
-								</a>
-							</div>
-							<div class="home2_banner_text">
-								<h4>men's watch</h4>
-								<h3>-35% sale off</h3>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-						<div class="home2_banner_single">
-							<div class="home2_banner_one">
-								<a href="#">
-									<img src="<?php echo BASE_URL; ?>public/img/banner/banner-3.jpg" alt="banner" />
-								</a>
-							</div>
-							<div class="home2_banner_text">
-								<h4>trend shoes</h4>
-								<h3>-35% sale off</h3>
-							</div>
-						</div>
-					</div>
-				</div>-->
-			</div>
-		</div>
-		<!--End home-2 banner area -->
 		<!--Start Branding area -->
 		<div class="branding_area branding_home2">
 			<div class="container">
@@ -647,14 +603,14 @@
 
 								<?php if (file_exists("views/novedades/fotos/".$novedades->archivo.".jpg")): ?>
 										<div class="single_blog">
-											<a href="#">
+											<a href="<?php echo BASE_URL; ?>principal/novedad/<?php echo $novedades->id;?>">
 												<img src='<?php echo BASE_URL . "views/novedades/fotos/".$novedades->archivo?>.jpg?nocache= <?php echo date("Y-m-d H:i:s")?>' alt="banner" />
 											</a>
 											<div class="blog_details">
-												<a href="#"><?php echo $novedades->nombre;?></a>
+												<a href="<?php echo BASE_URL; ?>principal/novedad/<?php echo $novedades->id;?>"><?php echo $novedades->nombre;?></a>
 												<p><?php echo $novedades->tnov;?></p>
 												<h3><?php echo date('d-m-Y',strtotime($novedades->fecha_creacion));?></h3>
-												<a href="#">
+												<a href="<?php echo BASE_URL; ?>principal/novedad/<?php echo $novedades->id;?>">
 												<div class="read_more">
 													<i class="fa fa-angle-right"></i>
 												</div>

@@ -50,6 +50,15 @@ class principalModel extends Model {
         //Se retorna la consulta y se recorren los registros
         return $consulta;
     }
+
+    public function getnovedad($id) {
+        //Se crea y ejecuta la consulta
+            $consulta = $this->_db->get_row("SELECT n.*,tn.nombre as tnov 
+                                                FROM novedades as n, tipo_novedad as tn
+                                                WHERE n.id_tipo_novedad=tn.id AND n.id=$id");
+        //Se retorna la consulta y se recorren los registros
+        return $consulta;
+    }
 }
 
 ?>
